@@ -15,25 +15,26 @@
   </head>
   <body>
     <main>
-      <div class="card">
+      <div class="card" role="article" aria-labelledby="card-name">
         <div class="card-header">
           <img
             class="card-avatar"
             alt="avatar-picture"
             src="./assets/profile-thumbnail.png"
           />
-          <div class="card-identity">
-            <div class="card-name text-lg">Sarah Dole</div>
-            <div class="card-handle text-sm">@sarahdole</div>
+          <div class="card-id-info">
+            <h2 class="card-name text-lg">Sarah Dole</h2>
+            <p class="card-handle text-sm">@sarahdole</p>
           </div>
         </div>
-        <p class="card-paragraph text-base">
-          I've been searching for high-quality abstract images for my design
-          projects, and I'm thrilled to have found this platform. The variety
-          and depth of creativity are astounding!
-        </p>
+        <section>
+          <p lang="en" class="card-paragraph text-base">
+            I've been searching for high-quality abstract images for my design
+            projects, and I'm thrilled to have found this platform. The variety
+            and depth of creativity are astounding!
+          </p>
+        </section>
       </div>
     </main>
-    <script src="script.js"></script>
   </body>
 </html>
