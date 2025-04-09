@@ -23,5 +23,12 @@
   "description": "",
   "devDependencies": {
     "astro": "^5.5.6"
+  },
+  "dependencies": {
+    "@astrojs/react": "^4.2.3",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   }
 }
