@@ -2,13 +2,21 @@ import React from 'react';
 import './Badge.css';
 
 type BadgeProps = {
-  status: 'neutral' | 'success' | 'error' | 'warning' | 'brand';
+  color: 'neutral' | 'success' | 'error' | 'warning' | 'brand';
   label: string;
-  size: 'small' | 'medium' | 'large';
+  size: 'sm' | 'md' | 'lg';
 };
 
-const Badge: React.FC<BadgeProps> = ({ status, label, size }) => {
-  return <span className={`grid-item badge ${status} ${size}`}>{label}</span>;
+const Badge: React.FC<BadgeProps> = ({
+  color = 'neutral',
+  label = 'label',
+  size = 'medium'
+}) => {
+  return (
+    <span className={`badge badge_color_${color} badge_size_${size}`}>
+      {label}
+    </span>
+  );
 };
 
 export default Badge;

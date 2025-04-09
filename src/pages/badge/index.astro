@@ -18,29 +18,29 @@ import Badge from '../../components/Badge/Badge';
   <body>
     <div class="flex-container">
       <div class="row">
-        <Badge size="small" label="Label" status="neutral" />
-        <Badge size="medium" label="Label" status="neutral" />
-        <Badge size="large" label="Label" status="neutral" />
+        <Badge size="sm" label="Label" color="neutral" />
+        <Badge size="md" label="Label" color="neutral" />
+        <Badge size="lg" label="Label" color="neutral" />
       </div>
       <div class="row">
-        <Badge size="small" label="Label" status="error" />
-        <Badge size="medium" label="Label" status="error" />
-        <Badge size="large" label="Label" status="error" />
+        <Badge size="sm" label="Label" color="error" />
+        <Badge size="md" label="Label" color="error" />
+        <Badge size="lg" label="Label" color="error" />
       </div>
       <div class="row">
-        <Badge size="small" label="Label" status="warning" />
-        <Badge size="medium" label="Label" status="warning" />
-        <Badge size="large" label="Label" status="warning" />
+        <Badge size="sm" label="Label" color="warning" />
+        <Badge size="md" label="Label" color="warning" />
+        <Badge size="lg" label="Label" color="warning" />
       </div>
       <div class="row">
-        <Badge size="small" label="Label" status="success" />
-        <Badge size="medium" label="Label" status="success" />
-        <Badge size="large" label="Label" status="success" />
+        <Badge size="sm" label="Label" color="success" />
+        <Badge size="md" label="Label" color="success" />
+        <Badge size="lg" label="Label" color="success" />
       </div>
       <div class="row">
-        <Badge size="small" label="Label" status="brand" />
-        <Badge size="medium" label="Label" status="brand" />
-        <Badge size="large" label="Label" status="brand" />
+        <Badge size="sm" label="Label" color="brand" />
+        <Badge size="md" label="Label" color="brand" />
+        <Badge size="lg" label="Label" color="brand" />
       </div>
     </div>
   </body>
@@ -55,10 +55,13 @@ import Badge from '../../components/Badge/Badge';
     height: 100vh;
   }
 
-  .grid-container {
+  .flex-container {
     display: flex;
-    /* grid-template-columns: repeat(3, auto);
-    grid-template-rows: repeat(5, auto); */
-    gap: 24px;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .row {
+    display: flex;
+    gap: 1.5rem;
   }
 </style>
