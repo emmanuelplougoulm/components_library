@@ -13,7 +13,11 @@ const Badge: React.FC<BadgeProps> = ({
   size = 'medium'
 }) => {
   return (
-    <span className={`badge badge_color_${color} badge_size_${size}`}>
+    <span
+      role="status"
+      aria-label={label}
+      className={`badge badge_color_${color} badge_size_${size}`}
+    >
       {label}
     </span>
   );
