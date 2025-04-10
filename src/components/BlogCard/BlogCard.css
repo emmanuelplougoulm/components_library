@@ -3,7 +3,8 @@ p {
   margin: 0;
 }
 
-button {
+button,
+header {
   all: unset;
 }
 
@@ -33,9 +34,24 @@ button {
 .blog_card_content {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  -moz-gap: 0.75rem;
-  padding: 1.5rem 1rem;
+  gap: 12px;
+  -moz-gap: 12px;
+  padding: 24px 16px;
+}
+
+.blog_card_header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  -moz-gap: 8px;
+  align-self: stretch;
+}
+
+.blog_card_text {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-self: stretch;
 }
 
 .blog_card_title {
