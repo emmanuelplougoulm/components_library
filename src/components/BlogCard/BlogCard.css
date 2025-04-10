@@ -24,6 +24,8 @@ button {
 
 .blog_card_image {
   object-fit: cover;
+  -moz-object-fit: cover;
+  -webkit-object-fit: cover;
   height: 288px;
 }
 
@@ -31,6 +33,7 @@ button {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  -moz-gap: 12px;
   padding: 24px 16px;
 }
 
@@ -51,6 +54,8 @@ button {
   font-size: 16px;
   line-height: 24px;
   color: #525252;
+
+  -webkit-font-smoothing: antialiased;
 }
 
 .blog_card_button {
@@ -58,6 +63,7 @@ button {
   justify-content: center;
   align-items: center;
   gap: 6px;
+  -moz-gap: 6px;
 
   font-weight: 500;
   font-size: 16px;
@@ -68,4 +74,7 @@ button {
 
   width: fit-content;
   cursor: pointer;
+
+  -webkit-width: fit-content;
+  -webkit-tap-highlight-color: transparent;
 }
