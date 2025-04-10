@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import './BlogCard.css';
 import Badge from '../Badge/Badge';
-import ArrowRight from '../../assets/icons/arrow-right.svg';
+import ArrowRight from '../../assets/icons/arrow-right.svg?react';
 
 type BlogCardProps = {
   badgeStatus: 'neutral' | 'success' | 'error' | 'warning' | 'brand';
@@ -45,7 +45,7 @@ const BlogCard: React.FC<BlogCardProps> = ({
           onClick={() => btnFn?.()}
         >
           {btnLabel}
-          <img src={ArrowRight.src} alt="Arrow Right Icon" aria-hidden="true" />
+          <ArrowRight className="blog_card_icon" />
         </button>
       </div>
     </div>
