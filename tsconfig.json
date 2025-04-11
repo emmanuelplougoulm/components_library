@@ -1,9 +1,14 @@
 {
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "jsxImportSource": "react",
-    "types": ["vite-plugin-svgr/client"]
+    "types": [
+      "vite-plugin-svgr/client"
+    ]
   },
-  "include": ["src/**/*", "src/types/svg.d.ts"]
+  "include": [
+    "src/**/*",
+    "src/types/svg.d.ts"
+  ]
 }
