@@ -1,11 +1,12 @@
 import { defineConfig } from 'astro/config';
 import svgr from 'vite-plugin-svgr';
 import react from '@astrojs/react';
+import vue from '@astrojs/vue';
 
 export default defineConfig({
   site: 'https://emmanuelplougoulm.github.io/components_library/',
   base: '/components_library/',
-  integrations: [react()],
+  integrations: [react(), vue()],
   vite: {
     plugins: [
       svgr({
