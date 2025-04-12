@@ -1,5 +1,7 @@
 ---
 import Button from '../../components/Button/Button.vue';
+import { Icon } from 'astro-icon/components';
+import '../../styles/global.css';
 ---
 
 <html lang="fr">
@@ -16,6 +18,134 @@ import Button from '../../components/Button/Button.vue';
     />
   </head>
   <body>
-    <Button label="button" variant="primary" />
+    <div class="buttons_container">
+      <div class="row">
+        <Button label="button CTA" variant="primary" size="md" />
+
+        <Button label="button CTA" variant="primary" size="lg" client:load>
+          <Icon name="star" slot="iconLeft" />
+        </Button>
+
+        <Button label="button CTA" variant="primary" size="xl" client:load>
+          <Icon name="star" slot="iconRight" />
+        </Button>
+
+        <Button label="button CTA" variant="primary" size="xxl" />
+
+        <Button variant="primary" size="xxl" client:load>
+          <Icon name="star" slot="iconOnly" />
+        </Button>
+      </div>
+      <div class="row">
+        <Button label="button CTA" variant="secondary" size="md" />
+
+        <Button label="button CTA" variant="secondary" size="lg" client:load>
+          <Icon name="star" slot="iconLeft" />
+        </Button>
+
+        <Button label="button CTA" variant="secondary" size="xl" client:load>
+          <Icon name="star" slot="iconRight" />
+        </Button>
+
+        <Button label="button CTA" variant="secondary" size="xxl" />
+
+        <Button variant="secondary" size="xxl" client:load>
+          <Icon name="star" slot="iconOnly" />
+        </Button>
+      </div>
+      <div class="row">
+        <Button label="button CTA" variant="tertiary" size="md" />
+
+        <Button label="button CTA" variant="tertiary" size="lg" client:load>
+          <Icon name="star" slot="iconLeft" />
+        </Button>
+
+        <Button label="button CTA" variant="tertiary" size="xl" client:load>
+          <Icon name="star" slot="iconRight" />
+        </Button>
+
+        <Button label="button CTA" variant="tertiary" size="xxl" />
+
+        <Button variant="tertiary" size="xxl" client:load>
+          <Icon name="star" slot="iconOnly" />
+        </Button>
+      </div>
+      <div class="row">
+        <Button label="button CTA" variant="link-color" size="md" />
+
+        <Button label="button CTA" variant="link-color" size="lg" client:load>
+          <Icon name="star" slot="iconLeft" />
+        </Button>
+
+        <Button label="button CTA" variant="link-color" size="xl" client:load>
+          <Icon name="star" slot="iconRight" />
+        </Button>
+
+        <Button label="button CTA" variant="link-color" size="xxl" />
+
+        <Button variant="link-color" size="xxl" client:load>
+          <Icon name="star" slot="iconOnly" />
+        </Button>
+      </div>
+      <div class="row">
+        <Button label="button CTA" variant="link-gray" size="md" />
+
+        <Button label="button CTA" variant="link-gray" size="lg" client:load>
+          <Icon name="star" slot="iconLeft" />
+        </Button>
+
+        <Button label="button CTA" variant="link-gray" size="xl" client:load>
+          <Icon name="star" slot="iconRight" />
+        </Button>
+
+        <Button label="button CTA" variant="link-gray" size="xxl" />
+
+        <Button variant="link-gray" size="xxl" client:load>
+          <Icon name="star" slot="iconOnly" />
+        </Button>
+      </div>
+      <div class="row">
+        <Button label="button CTA" variant="destructive" size="md" />
+
+        <Button label="button CTA" variant="destructive" size="lg" client:load>
+          <Icon name="star" slot="iconLeft" />
+        </Button>
+
+        <Button label="button CTA" variant="destructive" size="xl" client:load>
+          <Icon name="star" slot="iconRight" />
+        </Button>
+
+        <Button label="button CTA" variant="destructive" size="xxl" />
+
+        <Button variant="destructive" size="xxl" client:load>
+          <Icon name="star" slot="iconOnly" />
+        </Button>
+      </div>
+    </div>
   </body>
 </html>
+
+<style>
+  body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    padding: 110px 0px;
+    flex-wrap: wrap;
+  }
+
+  .buttons_container {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .row {
+    display: flex;
+    align-items: center;
+    max-width: 695px;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+</style>
