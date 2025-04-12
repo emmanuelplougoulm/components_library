@@ -1,0 +1,23 @@
+:root {
+  --color-primary-bg: #4338ca;
+  --color-primary-hover-bg: #3730a3;
+  --color-primary-focus-bg: #3730a3;
+  --color-primary-text: #ffffff;
+
+  --color-secondary-bg: #ffffff;
+  --color-secondary-hover-bg: #fafafa;
+  --color-secondary-focus-bg: #fafafa;
+  --color-secondary-text: #171717;
+
+  --color-tertiary-bg: none;
+  --color-tertiary-hover-bg: #fafafa;
+  --color-tertiary-focus-bg: #fafafa;
+  --color-tertiary-text: #4338ca;
+
+  --color-destructive-bg: #dc2626;
+  --color-destructive-hover-bg: #b91c1c;
+  --color-destructive-focus-bg: #b91c1c;
+  --color-destructive-text: #ffffff;
+
+  --font-weight: 500;
+}

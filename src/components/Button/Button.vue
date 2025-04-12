@@ -8,7 +8,8 @@
       { button_icon_only: $slots.iconOnly }
     ]"
     :disabled="disabled"
-    @click="$emit('click')"
+    @click="onClick"
+    role="button"
   >
     <div v-if="$slots.iconLeft" class="button_icon" :class="[`button_icon_${size}`]">
       <slot name="iconLeft"></slot>
@@ -31,8 +32,8 @@ import { defineProps } from 'vue';
 
 defineProps<{
   label?: string;
-  size?: 'md' | 'lg' | 'xl' | 'xxl';
-  variant?:
+  size: 'md' | 'lg' | 'xl' | 'xxl';
+  variant:
     | 'primary'
     | 'secondary'
     | 'tertiary'
@@ -40,9 +41,8 @@ defineProps<{
     | 'link-gray'
     | 'destructive';
   disabled?: boolean;
+  onClick?: () => void;
 }>();
-
-defineEmits(['click']);
 </script>
 
 <style>
