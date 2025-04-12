@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import './BlogCard.css';
 import Badge from '../Badge/Badge';
-import ArrowRight from '../../assets/icons/arrow-right.svg?react';
+import ArrowRight from '../../icons/arrow-right.svg?react';
 
 type BlogCardProps = {
   badgeStatus: 'neutral' | 'success' | 'error' | 'warning' | 'brand';
