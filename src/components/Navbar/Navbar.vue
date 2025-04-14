@@ -6,30 +6,40 @@
         <span class="logo-text">Abstractly</span>
       </div>
       <nav class="navigation">
-        <Button size="md" variant="link-gray" label="home" />
-        <Button size="md" variant="link-gray" label="features" />
-        <Button size="md" variant="link-gray" label="pricing" />
-        <Button size="md" variant="link-gray" label="about us" />
-        <Button size="md" variant="link-gray" label="contact" />
+        <Button
+          v-for="link in links"
+          :size="link.size"
+          :variant="link.variant"
+          :label="link.label"
+        />
       </nav>
       <div class="cta_buttons">
-        <Button size="md" variant="secondary" label="learn more" />
-        <Button size="md" variant="primary" label="See pricing" />
+        <Button
+          v-for="ctaButton in ctaButtons"
+          :size="ctaButton.size"
+          :variant="ctaButton.variant"
+          :label="ctaButton.label"
+        />
       </div>
       <img class="burger_menu" :src="BurgerMenu" @click="toggleMenu" />
     </header>
 
     <div :class="[{ open: isMenuOpen }, `slideout_menu`]">
       <nav class="slideout_menu_nav">
-        <Button size="md" variant="link-gray" label="home" />
-        <Button size="md" variant="link-gray" label="features" />
-        <Button size="md" variant="link-gray" label="pricing" />
-        <Button size="md" variant="link-gray" label="about us" />
-        <Button size="md" variant="link-gray" label="contact" />
+        <Button
+          v-for="link in links"
+          :size="link.size"
+          :variant="link.variant"
+          :label="link.label"
+        />
       </nav>
       <div class="slideout_menu_cta_buttons">
-        <Button size="md" variant="secondary" label="learn more" />
-        <Button size="md" variant="primary" label="Try it out" />
+        <Button
+          v-for="ctaButton in ctaButtons"
+          :size="ctaButton.size"
+          :variant="ctaButton.variant"
+          :label="ctaButton.label"
+        />
       </div>
     </div>
   </div>
@@ -38,7 +48,6 @@
 <script lang="ts" setup>
 import { defineProps, ref } from 'vue';
 import Button from '../Button/Button.vue';
-
 import LogoIcon from '../../icons/abstractly-logo.svg?url';
 import BurgerMenu from '../../icons/burger-menu.svg?url';
 
@@ -47,6 +56,27 @@ const isMenuOpen = ref<boolean>(false);
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
 };
+
+type TLink = {
+  label: string;
+  path: string;
+  size: string;
+  variant: string;
+};
+
+type TCtaButtons = {
+  label: string;
+  path: string;
+  size: string;
+  variant: string;
+};
+
+type TNavbar = {
+  links: TLink[];
+  ctaButtons: TCtaButtons[];
+};
+
+const { links, ctaButtons } = defineProps<TNavbar>();
 </script>
 
 <style>
@@ -169,12 +199,9 @@ img {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    /* gap: 20px; */
-    border: 1px red solid;
   }
 
   .navbar-container {
-    background-color: violet;
     padding: 0 16px;
   }
 
