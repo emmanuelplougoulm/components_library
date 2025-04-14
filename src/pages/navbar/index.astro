@@ -1,5 +1,7 @@
 ---
 import Navbar from '../../components/Navbar/Navbar.vue';
+import { links, ctaButtons } from '../../components/Navbar/config';
+import '../../styles/global.css';
 ---
 
 <html lang="fr">
@@ -16,7 +18,7 @@ import Navbar from '../../components/Navbar/Navbar.vue';
     />
   </head>
   <body>
-    <Navbar />
+    <Navbar links={links} ctaButtons={ctaButtons} client:load />
   </body>
 </html>
 
