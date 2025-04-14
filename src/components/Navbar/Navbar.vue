@@ -1,46 +1,185 @@
 <template>
-  <header class="navbar-container"></header>
+  <div class="main-container">
+    <header class="navbar-container">
+      <div class="logo-container">
+        <img :src="LogoIcon" class="logo_icon" />
+        <span class="logo-text">Abstractly</span>
+      </div>
+      <nav class="navigation">
+        <Button size="md" variant="link-gray" label="home" />
+        <Button size="md" variant="link-gray" label="features" />
+        <Button size="md" variant="link-gray" label="pricing" />
+        <Button size="md" variant="link-gray" label="about us" />
+        <Button size="md" variant="link-gray" label="contact" />
+      </nav>
+      <div class="cta_buttons">
+        <Button size="md" variant="secondary" label="learn more" />
+        <Button size="md" variant="primary" label="See pricing" />
+      </div>
+      <img class="burger_menu" :src="BurgerMenu" @click="toggleMenu" />
+    </header>
+
+    <div :class="[{ open: isMenuOpen }, `slideout_menu`]">
+      <nav class="slideout_menu_nav">
+        <Button size="md" variant="link-gray" label="home" />
+        <Button size="md" variant="link-gray" label="features" />
+        <Button size="md" variant="link-gray" label="pricing" />
+        <Button size="md" variant="link-gray" label="about us" />
+        <Button size="md" variant="link-gray" label="contact" />
+      </nav>
+      <div class="slideout_menu_cta_buttons">
+        <Button size="md" variant="secondary" label="learn more" />
+        <Button size="md" variant="primary" label="Try it out" />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script lang="ts" setup>
-import { defineProps } from 'vue';
+import { defineProps, ref } from 'vue';
+import Button from '../Button/Button.vue';
 
-defineProps<{
-  // label?: string;
-  // size: 'md' | 'lg' | 'xl' | 'xxl';
-  // variant:
-  //   | 'primary'
-  //   | 'secondary'
-  //   | 'tertiary'
-  //   | 'link-color'
-  //   | 'link-gray'
-  //   | 'destructive';
-  // disabled?: boolean;
-  // onClick?: () => void;
-}>();
+import LogoIcon from '../../icons/abstractly-logo.svg?url';
+import BurgerMenu from '../../icons/burger-menu.svg?url';
+
+const isMenuOpen = ref<boolean>(false);
+
+const toggleMenu = () => {
+  isMenuOpen.value = !isMenuOpen.value;
+};
 </script>
 
 <style>
-header {
-  /* all: unset; */
+* {
+  box-sizing: border-box;
 }
 
 .navbar-container {
   height: 84px;
-  background-color: aqua;
+  padding: 16px 112px 0px;
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  gap: 96px;
+}
+
+.logo-container {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 4px;
+}
+
+.logo-text {
+  font-family: 'Noto Sans';
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: #171717;
+}
+
+.logo_icon {
+  width: 28px;
+  height: 28px;
+}
+
+.navigation {
+  display: inline-flex;
+  flex-grow: 1;
+  gap: 32px;
+}
+
+.cta_buttons {
+  display: inline-flex;
+  gap: 16px;
+}
+
+img {
+  width: 15px;
+  height: 13.333333015441895px;
+  color: #525252;
+}
+
+.burger_menu {
+  display: none;
+}
+
+.slideout_container {
+  position: relative;
+}
+.slideout_menu {
+  position: fixed;
+  top: 70px;
+  bottom: 0;
+  height: calc(100vh - 68px);
+  width: 100vw;
+  padding: 16px 32px 16px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.slideout_menu_nav {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex-grow: 1;
+}
+
+.slideout_menu_nav button {
+  width: fit-content;
+}
+
+.slideout_menu_cta_buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 /* TABLET */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1100px) {
   .navbar-container {
-    background-color: blue;
+    justify-content: space-between;
+    padding: 0px 32px;
+    height: 68px;
+    border-radius: 6px;
+  }
+
+  .cta_buttons,
+  .navigation {
+    display: none;
+  }
+
+  .burger_menu {
+    display: block;
+  }
+
+  .slideout_menu.open {
+    transform: translateX(0);
   }
 }
 
 /* MOBILE */
 @media screen and (max-width: 375px) {
+  .main-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* gap: 20px; */
+    border: 1px red solid;
+  }
+
   .navbar-container {
     background-color: violet;
+    padding: 0 16px;
+  }
+
+  .slideout_menu {
+    padding: 16px;
   }
 }
 </style>
