@@ -50,6 +50,7 @@ import { defineProps, ref } from 'vue';
 import Button from '@components/Button/Button.vue';
 import LogoIcon from '@icons/abstractly-logo.svg?url';
 import BurgerMenu from '@icons/burger-menu.svg?url';
+import { type TSize, type TVariant } from '@custom-types/types';
 
 const isMenuOpen = ref<boolean>(false);
 
@@ -60,23 +61,23 @@ const toggleMenu = () => {
 type TLink = {
   label: string;
   path: string;
-  size: string;
-  variant: string;
+  size: TSize;
+  variant: TVariant;
 };
 
-type TCtaButtons = {
+type TCtaButton = {
   label: string;
   path: string;
-  size: string;
-  variant: string;
+  size: TSize;
+  variant: TVariant;
 };
 
-type TNavbar = {
+type TNavbarProps = {
   links: TLink[];
-  ctaButtons: TCtaButtons[];
+  ctaButtons: TCtaButton[];
 };
 
-const { links, ctaButtons } = defineProps<TNavbar>();
+const { links, ctaButtons } = defineProps<TNavbarProps>();
 </script>
 
 <style>
@@ -124,15 +125,20 @@ const { links, ctaButtons } = defineProps<TNavbar>();
   gap: 16px;
 }
 
-img {
-  width: 15px;
-  height: 13.333333015441895px;
-  color: #525252;
-}
-
 .burger_menu {
   display: none;
+  width: 15px;
+  height: 13.333333015441895px;
+  /* color: #525252; */
 }
+
+/* these are not applied to current svg because of the way it is loaded. 
+TODO: find a better way to do it 
+*/
+/* .burger_menu:hover {
+}
+.burger_menu:focus {
+} */
 
 .slideout_container {
   position: relative;
