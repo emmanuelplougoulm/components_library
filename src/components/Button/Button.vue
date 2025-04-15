@@ -31,19 +31,15 @@
 import { defineProps } from 'vue';
 import { type TSize, type TVariant } from '@custom-types/types';
 
-defineProps<{
+type TButtonProps = {
   label?: string;
-  size: 'md' | 'lg' | 'xl' | 'xxl';
-  variant:
-    | 'primary'
-    | 'secondary'
-    | 'tertiary'
-    | 'link-color'
-    | 'link-gray'
-    | 'destructive';
+  size: TSize;
+  variant: TVariant;
   disabled?: boolean;
   onClick?: () => void;
-}>();
+};
+
+defineProps<TButtonProps>();
 </script>
 
 <style>
@@ -132,11 +128,39 @@ button {
     rgb(0.2666666805744171 0.2980392277240753 0.9058823585510254 / 0.12);
 }
 
+.button_tertiary.disabled {
+  background-color: #f5f5f5;
+  color: #a3a3a3;
+}
+
 /* LINK COLOR */
 
 .button_link-color {
   background-color: none;
   color: #4338ca;
+}
+
+.button_link-color {
+  background-color: var(--color-link-color-bg);
+  color: var(--color-link-color-text);
+}
+
+.button_link-color:hover {
+  color: var(--color-link-color-hover-text);
+}
+
+.button_link-color:focus {
+  color: var(--color-link-color-focus-text);
+  background-color: #ffffff;
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0px 0px 0px 4px
+    rgb(0.2666666805744171 0.2980392277240753 0.9058823585510254 / 0.12);
+}
+
+.button_link-color.disabled,
+.button_link-gray.disabled {
+  color: #a3a3a3;
 }
 
 .button_link-color.button_md,
@@ -149,9 +173,22 @@ button {
 /* LINK GRAY */
 
 .button_link-gray {
-  background-color: none;
-  color: #525252;
+  background-color: var(--color-link-gray-bg);
+  color: var(--color-link-gray-text);
 }
+
+.button_link-gray:hover {
+  color: var(--color-link-gray-hover-text);
+}
+
+.button_link-gray:focus {
+  color: var(--color-link-gray-focus-text);
+  background-color: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0px 0px 0px 4px
+    rgb(0.2666666805744171 0.2980392277240753 0.9058823585510254 / 0.12);
+}
+
 .button_link-gray.button_md,
 .button_link-gray.button_lg,
 .button_link-gray.button_xl,
