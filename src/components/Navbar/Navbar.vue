@@ -47,9 +47,9 @@
 
 <script lang="ts" setup>
 import { defineProps, ref } from 'vue';
-import Button from '../Button/Button.vue';
-import LogoIcon from '../../icons/abstractly-logo.svg?url';
-import BurgerMenu from '../../icons/burger-menu.svg?url';
+import Button from '@components/Button/Button.vue';
+import LogoIcon from '@icons/abstractly-logo.svg?url';
+import BurgerMenu from '@icons/burger-menu.svg?url';
 
 const isMenuOpen = ref<boolean>(false);
 
