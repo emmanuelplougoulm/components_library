@@ -17,6 +17,9 @@ export default defineConfig({
   integrations: [react(), vue(), icon(), svgLoader()],
   vite: {
     plugins: [
+      svgLoader({
+        defaultImport: 'component'
+      }),
       svgr({
         define: {
           __VUE_PROD_DEVTOOLS__: JSON.stringify(true)
