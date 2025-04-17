@@ -1,15 +1,15 @@
 <template>
-  <div class="profile_card">
-    <div class="profile_card_details">
-      <img :src="thumbnail" class="profile_card_image" />
+  <article class="profile_card">
+    <header class="profile_card_details">
+      <img :src="thumbnail" class="profile_card_image" :alt="`${name} profile picture`" />
       <div>
-        <div class="profile_card_name">{{ name }}</div>
-        <div class="profile_card_position">{{ position }}</div>
+        <h2 class="profile_card_name">{{ name }}</h2>
+        <p class="profile_card_position">{{ position }}</p>
       </div>
-      <div class="profile_card_description">{{ description }}</div>
-    </div>
-    <div class="profile_card_actions">
-      <div class="profile_card_button">
+      <p class="profile_card_description">{{ description }}</p>
+    </header>
+    <footer class="profile_card_actions">
+      <div>
         <Button
           class="profile_card_button"
           size="md"
@@ -22,8 +22,8 @@
           <BaseIcon :iconName="icon.iconName" />
         </div>
       </div>
-    </div>
-  </div>
+    </footer>
+  </article>
 </template>
 
 <script lang="ts" setup>
@@ -45,6 +45,11 @@ defineProps<TProfileCardProps>();
 </script>
 
 <style>
+p,
+h2 {
+  margin: 0;
+}
+
 .base_icon {
   fill: var(--color-primary-bg);
 }
@@ -54,12 +59,14 @@ defineProps<TProfileCardProps>();
 }
 
 .profile_card {
+  font-family: 'Noto Sans';
   width: 340px;
   display: flex;
   flex-direction: column;
   gap: 40px;
   padding: 24px 16px;
   border-radius: 8px;
+  background-color: #ffffff;
   box-shadow:
     0px 1px 2px 0 rgb(0 0 0 / 0.06),
     0px 1px 3px 0 rgb(0 0 0 / 0.1);
@@ -77,7 +84,6 @@ defineProps<TProfileCardProps>();
 }
 
 .profile_card_name {
-  font-family: 'Noto Sans';
   font-weight: 500;
   font-size: 20px;
   line-height: 28px;
@@ -87,7 +93,6 @@ defineProps<TProfileCardProps>();
 }
 
 .profile_card_position {
-  font-family: 'Noto Sans';
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
@@ -97,7 +102,6 @@ defineProps<TProfileCardProps>();
 }
 
 .profile_card_description {
-  font-family: 'Noto Sans';
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
