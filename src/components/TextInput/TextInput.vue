@@ -1,11 +1,16 @@
 <template>
   <div class="input">
-    <label class="input__label" for="input">{{ label }}</label>
+    <label class="input__label" for="inputId">{{ label }}</label>
     <div class="input__field">
-      <div v-if="$slots.iconLeft" class="input__icon input__icon--left">
+      <div
+        v-if="$slots.iconLeft"
+        class="input__icon input__icon--left"
+        aria-hidden="true"
+      >
         <slot name="iconLeft"></slot>
       </div>
       <input
+        :id="inputId"
         placeholder="name@email.com"
         name="input"
         :class="[
@@ -16,16 +21,18 @@
         type="text"
         v-model="text"
         :disabled="disabled"
+        :aria-invalid="error ? 'true' : 'false'"
       />
       <div
         v-if="$slots.iconRight"
         :class="[`input__icon input__icon--right`, { error: error }]"
+        aria-hidden="true"
       >
         <slot name="iconRight"></slot>
       </div>
     </div>
 
-    <p :class="[`input__hint`, { error: error }]">
+    <p v-if="hint" role="status" :class="[`input__hint`, { error: error }]">
       {{ hint }}
     </p>
   </div>
@@ -34,11 +41,13 @@
 <script lang="ts" setup>
 import BaseIcon from '../BaseIcon/BaseIcon.vue';
 
+const inputId = `input-${Math.random().toString(36).substr(2, 9)}`;
+
 type TTextInputProps = {
   label: string;
   hint?: string;
-  disabled?: boolean;
-  error?: boolean;
+  disabled: boolean;
+  error: boolean;
 };
 
 const text = defineModel<string>('text');
