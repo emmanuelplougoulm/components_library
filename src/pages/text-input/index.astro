@@ -21,16 +21,35 @@ const text = ref('');
   </head>
   <body>
     <div class="inputs_container">
-      <TextInput label="Email" v-model:text={text} hint="This is a hint text" client:load>
+      <TextInput
+        label="Email"
+        v-model:text={text}
+        hint="This is a hint text"
+        disabled={false}
+        error={false}
+        client:load><BaseIcon iconName="question-circle" slot="iconRight" /></TextInput
+      >
+
+      <TextInput
+        label="Email"
+        v-model:text={text}
+        hint="This is a hint text"
+        disabled={false}
+        error={false}
+        client:load
+      >
         <BaseIcon iconName="email" slot="iconLeft" />
         <BaseIcon iconName="question-circle" slot="iconRight" />
       </TextInput>
 
-      <TextInput label="Email" v-model:text={text} hint="This is a hint text" client:load
-        ><BaseIcon iconName="question-circle" slot="iconRight" /></TextInput
+      <TextInput
+        label="Email"
+        v-model:text={text}
+        hint="This is a hint text"
+        disabled={false}
+        error={false}
+        client:load
       >
-
-      <TextInput label="Email" v-model:text={text} hint="This is a hint text" client:load>
         <BaseIcon iconName="question-circle" slot="iconRight" />
       </TextInput>
 
@@ -39,7 +58,8 @@ const text = ref('');
         v-model:text={text}
         hint="This is a hint text"
         client:load
-        error
+        disabled={false}
+        error={true}
       >
         <BaseIcon iconName="question-circle" slot="iconRight" />
       </TextInput>
