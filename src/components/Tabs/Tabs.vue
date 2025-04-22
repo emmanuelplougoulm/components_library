@@ -1,8 +1,12 @@
 <template>
   <div class="tabs">
     <ul class="tabs__header" role="tablist">
-      <li v-for="(tab, index) in tabs" :key="tab.title" role="tab-item">
+      <li v-for="(tab, index) in tabs" :key="tab.title" role="presentation">
         <button
+          :id="`tab-${index}`"
+          role="tab"
+          :aria-selected="index === activeIndex"
+          :aria-controls="`tabpanel-${index}`"
           @click="setActiveTab(index)"
           :class="[`tab`, { active: index === activeIndex }]"
         >
@@ -14,7 +18,9 @@
       <div
         v-show="index === activeIndex"
         v-for="(tab, index) in tabs"
-        role="active-tab-content"
+        :id="`tabpanel-${index}`"
+        role="tabpanel"
+        :aria-labelledby="`tab-${index}`"
       >
         {{ tab.content }}
       </div>
