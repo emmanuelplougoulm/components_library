@@ -14,7 +14,7 @@ const __dirname = dirname(__filename);
 export default defineConfig({
   site: 'https://emmanuelplougoulm.github.io/components_library/',
   base: '/components_library/',
-  integrations: [react(), vue(), icon(), svgLoader()],
+  integrations: [react(), vue({ devtools: true }), icon(), svgLoader()],
   vite: {
     plugins: [
       svgLoader({
