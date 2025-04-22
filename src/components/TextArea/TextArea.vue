@@ -1,8 +1,8 @@
 <template>
   <div class="textarea">
-    <label class="textarea__label" for="text-area">{{ label }}</label>
+    <label :for="uniqueId" class="textarea__label">{{ label }}</label>
     <textarea
-      id="text-area"
+      :id="uniqueId"
       :class="[
         `textarea__textarea`,
         { textarea__limit: isLimitExceed },
@@ -11,10 +11,17 @@
       :placeholder="placeholder"
       :disabled="disabled"
       v-model="text"
+      :aria-describedby="error ? `${uniqueId}-error` : null"
+      :aria-invalid="error ? 'true' : 'false'"
     ></textarea>
 
     <div :class="[`textarea__messages`, { textarea__messages__start: error }]">
-      <p v-if="error" role="status" class="textarea__error--message">
+      <p
+        v-if="error"
+        role="status"
+        class="textarea__error--message"
+        :id="`${uniqueId}-error`"
+      >
         {{ errorMessage }}
       </p>
 
@@ -39,6 +46,7 @@ type TTextAreaProps = {
 };
 
 import { ref, watch } from 'vue';
+const uniqueId = `textarea-${Math.random().toString(36)}`;
 
 const {
   label,
@@ -122,6 +130,7 @@ textarea {
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
+  min-height: 108px;
 }
 
 .textarea__textarea::placeholder {
