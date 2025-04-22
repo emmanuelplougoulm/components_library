@@ -39,8 +39,6 @@
 </template>
 
 <script lang="ts" setup>
-import BaseIcon from '../BaseIcon/BaseIcon.vue';
-
 const inputId = `input-${Math.random().toString(36).substr(2, 9)}`;
 
 type TTextInputProps = {
