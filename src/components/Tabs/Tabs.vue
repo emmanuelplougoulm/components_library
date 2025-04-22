@@ -2,13 +2,18 @@
   <div class="tabs">
     <ul class="tabs__header" role="tablist">
       <li v-for="(tab, index) in tabs" :key="tab.title" role="tab-item">
-        <button :class="[`tab`, { active: index === activeIndex }]">
+        <button
+          @click="setActiveTab(index)"
+          :class="[`tab`, { active: index === activeIndex }]"
+        >
           {{ tab.title }}
         </button>
       </li>
     </ul>
     <div class="tabs__content">
-      <slot />
+      <div v-show="index === activeIndex" v-for="(tab, index) in tabs">
+        {{ tab.content }}
+      </div>
     </div>
   </div>
 </template>
@@ -18,8 +23,12 @@ import { defineProps, ref } from 'vue';
 
 const activeIndex = ref(0);
 
+const setActiveTab = (index: number): void => {
+  activeIndex.value = index;
+};
+
 type TTabsProps = {
-  tabs: Array<{ title: string }>;
+  tabs: Array<{ title: string; content: string }>;
 };
 
 defineProps<TTabsProps>();
