@@ -17,89 +17,31 @@ import TextArea from '@components/TextArea/TextArea.vue';
   </head>
   <body>
     <div class="textarea_container">
-      <div class="item">
-        <p>NORMAL</p>
+      <div>
         <TextArea
-          label="Email"
+          label="Description"
           placeholder="Write your message here"
           errorMessage="This is an error message"
           client:load
         />
       </div>
       <div>
-        <p>FILLED</p>
         <TextArea
-          label="Email"
-          initialValue="Embedding iFrame using html"
-          placeholder="Write your message here"
-          errorMessage="This is an error message"
-          client:load
-        />
-      </div>
-      <div>
-        <p>FOCUSED</p>
-        <TextArea
-          label="Email"
-          placeholder="Write your message here"
-          errorMessage="This is an error message"
-          client:load
-        />
-      </div>
-      <div>
-        <p>DISABLED</p>
-        <TextArea
-          label="Email"
-          placeholder="Write your message here"
-          errorMessage="This is an error message"
-          disabled
-          client:load
-        />
-      </div>
-      <div>
-        <p>CHAR LIMIT EXCEEDED</p>
-        <TextArea
-          label="Email"
-          placeholder="Write your message here"
-          errorMessage="This is an error message"
-          client:load
-        />
-      </div>
-      <div>
-        <p>ERROR</p>
-        <TextArea
-          label="Email"
-          placeholder="Write your message here"
+          label="Description"
+          placeholder="Enter a description"
           errorMessage="This field is required"
           error
           client:load
         />
       </div>
-      <!--<div>
-        <p>ERROR FILLED</p>
+      <div>
         <TextArea
-          label="Email"
-          v-model:text={text}
-          hint="This is a hint text"
-          disabled={true}
-          error={false}
+          label="Description"
+          placeholder="Write your message here"
           errorMessage="This is an error message"
-          count="0/500"
           client:load
         />
       </div>
-      <div>
-        <p>ERROR FOCUSED</p>
-        <TextArea
-          label="Email"
-          v-model:text={text}
-          hint="This is a hint text"
-          disabled={true}
-          error={false}
-          errorMessage="This is an error message"
-          count="0/500"
-          client:load
-        />
-      </div> -->
     </div>
   </body>
 </html>
@@ -123,7 +65,6 @@ import TextArea from '@components/TextArea/TextArea.vue';
   }
 
   .item {
-    padding: 4px;
     height: 160px;
   }
 </style>
