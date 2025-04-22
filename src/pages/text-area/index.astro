@@ -1,0 +1,129 @@
+---
+import TextArea from '@components/TextArea/TextArea.vue';
+---
+
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TextArea</title>
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="textarea_container">
+      <div class="item">
+        <p>NORMAL</p>
+        <TextArea
+          label="Email"
+          placeholder="Write your message here"
+          errorMessage="This is an error message"
+          client:load
+        />
+      </div>
+      <div>
+        <p>FILLED</p>
+        <TextArea
+          label="Email"
+          initialValue="Embedding iFrame using html"
+          placeholder="Write your message here"
+          errorMessage="This is an error message"
+          client:load
+        />
+      </div>
+      <div>
+        <p>FOCUSED</p>
+        <TextArea
+          label="Email"
+          placeholder="Write your message here"
+          errorMessage="This is an error message"
+          client:load
+        />
+      </div>
+      <div>
+        <p>DISABLED</p>
+        <TextArea
+          label="Email"
+          placeholder="Write your message here"
+          errorMessage="This is an error message"
+          disabled
+          client:load
+        />
+      </div>
+      <div>
+        <p>CHAR LIMIT EXCEEDED</p>
+        <TextArea
+          label="Email"
+          placeholder="Write your message here"
+          errorMessage="This is an error message"
+          client:load
+        />
+      </div>
+      <div>
+        <p>ERROR</p>
+        <TextArea
+          label="Email"
+          placeholder="Write your message here"
+          errorMessage="This field is required"
+          error
+          client:load
+        />
+      </div>
+      <!--<div>
+        <p>ERROR FILLED</p>
+        <TextArea
+          label="Email"
+          v-model:text={text}
+          hint="This is a hint text"
+          disabled={true}
+          error={false}
+          errorMessage="This is an error message"
+          count="0/500"
+          client:load
+        />
+      </div>
+      <div>
+        <p>ERROR FOCUSED</p>
+        <TextArea
+          label="Email"
+          v-model:text={text}
+          hint="This is a hint text"
+          disabled={true}
+          error={false}
+          errorMessage="This is an error message"
+          count="0/500"
+          client:load
+        />
+      </div> -->
+    </div>
+  </body>
+</html>
+
+<style>
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 112px 0px;
+  }
+
+  .textarea_container {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+
+    width: 340px;
+    gap: 32px;
+  }
+
+  .item {
+    padding: 4px;
+    height: 160px;
+  }
+</style>
