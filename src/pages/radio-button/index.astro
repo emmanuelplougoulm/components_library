@@ -19,10 +19,27 @@ import '@styles/global.css';
   <body>
     <div class="radio__group_container">
       <fieldset>
-        <RadioButton label="weekly" size="md" />
-        <RadioButton label="weekly" size="md" />
-        <RadioButton label="weekly" size="md" />
-        <RadioButton label="weekly" size="md" />
+        <RadioButton
+          label="weekly"
+          size="md"
+          selected={false}
+          disabled={false}
+          client:load
+        />
+        <RadioButton
+          label="weekly"
+          size="md"
+          selected={true}
+          disabled={false}
+          client:load
+        />
+        <RadioButton
+          label="weekly"
+          size="md"
+          selected={true}
+          disabled={true}
+          client:load
+        />
       </fieldset>
     </div>
   </body>
@@ -30,6 +47,7 @@ import '@styles/global.css';
 
 <style>
   body {
+    font-family: 'Noto Sans';
     margin: 0;
     display: flex;
     justify-content: center;
@@ -50,5 +68,12 @@ import '@styles/global.css';
     max-width: 695px;
     gap: 20px;
     flex-wrap: wrap;
+  }
+
+  fieldset {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
 </style>
