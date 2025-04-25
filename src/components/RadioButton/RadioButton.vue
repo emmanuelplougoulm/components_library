@@ -1,13 +1,16 @@
 <template>
-  <div :class="[`radio`, `size-${size}`, { selected: selected }, { disabled: disabled }]">
+  <div
+    @click="handleSelected"
+    :id="radioId"
+    :class="[`radio`, `size-${size}`, { selected: selected }, { disabled: disabled }]"
+  >
     <div v-if="$slots.iconLeft" :class="[`icon`, `size-${size}`]">
       <slot name="iconLeft"></slot>
     </div>
-    <input type="radio" :id="inputId" :checked="selected" />
     <label
       v-if="!$slots.iconOnly"
       :class="[`radio__label`, `size-${size}`]"
-      :for="inputId"
+      :for="radioId"
       >{{ label }}</label
     >
     <div v-if="$slots.iconRight" :class="[`icon`, `size-${size}`]">
@@ -22,16 +25,22 @@
 <script lang="ts" setup>
 import { defineProps } from 'vue';
 
-const inputId = `input-${Math.random().toString(36)}`;
+const radioId = `input-${Math.random().toString(36)}`;
 
 type TButtonProps = {
   size: 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
   label: string;
-  selected: boolean;
   disabled: boolean;
 };
 
-defineProps<TButtonProps>();
+const { disabled } = defineProps<TButtonProps>();
+const selected = defineModel<boolean>('selected');
+
+const handleSelected = () => {
+  if (!disabled) {
+    selected.value = true;
+  }
+};
 </script>
 
 <style>
@@ -97,15 +106,16 @@ defineProps<TButtonProps>();
   padding: 10px 16px;
 }
 .radio.size-lg {
+  gap: 6px;
   padding: 12px 20px;
 }
 .radio.size-xl,
 .radio.size-xxl {
+  gap: 6px;
   padding: 16px 24px;
 }
 
 /* ICON SIZES */
-
 .icon {
   display: flex;
   justify-content: center;
