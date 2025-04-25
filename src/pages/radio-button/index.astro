@@ -2,6 +2,10 @@
 import RadioButton from '@components/RadioButton/RadioButton.vue';
 import '@styles/global.css';
 import { Icon } from 'astro-icon/components';
+import { ref } from 'vue';
+
+const selected = ref(false);
+const isSelected = ref(true);
 ---
 
 <html lang="fr">
@@ -18,27 +22,145 @@ import { Icon } from 'astro-icon/components';
     />
   </head>
   <body>
-    <div class="radio__group_container">
-      <fieldset>
+    <div class="container">
+      <div class="row">
         <RadioButton
           label="weekly"
           size="sm"
-          selected={false}
+          v-model:selected={selected}
           disabled={false}
           client:load
         >
           <Icon name="calendar-event" slot="iconLeft" />
+        </RadioButton>
+        <RadioButton
+          label="weekly"
+          size="md"
+          v-model:selected={selected}
+          disabled={false}
+          client:load
+        />
+        <RadioButton
+          label="weekly"
+          size="lg"
+          v-model:selected={selected}
+          disabled={false}
+          client:load
+        >
+          <Icon name="calendar-event" slot="iconRight" />
+        </RadioButton>
+        <RadioButton
+          label="weekly"
+          size="xl"
+          v-model:selected={selected}
+          disabled={false}
+          client:load
+        >
+          <Icon name="calendar-event" slot="iconLeft" />
+          <Icon name="arrow-down" slot="iconRight" />
         </RadioButton>
         <RadioButton
           label="weekly"
           size="xxl"
-          selected={false}
+          v-model:selected={selected}
+          disabled={false}
+          client:load
+        >
+          <Icon name="calendar-event" slot="iconOnly" />
+        </RadioButton>
+      </div>
+      <div class="row">
+        <RadioButton
+          label="monthly"
+          size="sm"
+          v-model:selected={isSelected}
           disabled={false}
           client:load
         >
           <Icon name="calendar-event" slot="iconLeft" />
         </RadioButton>
-      </fieldset>
+        <RadioButton
+          label="monthly"
+          size="md"
+          v-model:selected={isSelected}
+          disabled={false}
+          client:load
+        />
+        <RadioButton
+          label="monthly"
+          size="lg"
+          v-model:selected={isSelected}
+          disabled={false}
+          client:load
+        >
+          <Icon name="calendar-event" slot="iconRight" />
+        </RadioButton>
+        <RadioButton
+          label="monthly"
+          size="xl"
+          v-model:selected={isSelected}
+          disabled={false}
+          client:load
+        >
+          <Icon name="calendar-event" slot="iconLeft" />
+          <Icon name="arrow-down" slot="iconRight" />
+        </RadioButton>
+        <RadioButton
+          label="monthly"
+          size="xxl"
+          v-model:selected={isSelected}
+          disabled={false}
+          client:load
+        >
+          <Icon name="calendar-event" slot="iconOnly" />
+        </RadioButton>
+      </div>
+      <div class="row">
+        <RadioButton
+          label="annually"
+          size="sm"
+          v-model:selected={isSelected}
+          disabled={true}
+          client:load
+        >
+          <Icon name="calendar-event" slot="iconLeft" />
+        </RadioButton>
+        <RadioButton
+          label="annually"
+          size="md"
+          v-model:selected={isSelected}
+          disabled={true}
+          client:load
+        />
+        <RadioButton
+          label="annually"
+          size="lg"
+          v-model:selected={isSelected}
+          disabled={true}
+          client:load
+        >
+          <Icon name="calendar-event" slot="iconRight" />
+        </RadioButton>
+        <RadioButton
+          label="annually"
+          size="xl"
+          v-model:selected={isSelected}
+          disabled={true}
+          client:load
+        >
+          <Icon name="calendar-event" slot="iconLeft" />
+          <Icon name="arrow-down" slot="iconRight" />
+        </RadioButton>
+        <RadioButton
+          label="annually"
+          size="xxl"
+          v-model:selected={isSelected}
+          disabled={true}
+          client:load
+        >
+          <Icon name="calendar-event" slot="iconOnly" />
+        </RadioButton>
+      </div>
     </div>
   </body>
 </html>
@@ -54,17 +176,16 @@ import { Icon } from 'astro-icon/components';
     flex-wrap: wrap;
   }
 
-  .buttons_container {
+  .container {
     display: flex;
     flex-direction: column;
-    gap: 48px;
+    gap: 32px;
   }
 
   .row {
     display: flex;
     align-items: center;
-    max-width: 695px;
-    gap: 20px;
+    gap: 24px;
     flex-wrap: wrap;
   }
 
