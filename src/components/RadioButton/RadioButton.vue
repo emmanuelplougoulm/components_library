@@ -21,7 +21,6 @@
 
 <script lang="ts" setup>
 import { defineProps } from 'vue';
-import { type TSize } from '@custom-types/types';
 
 const inputId = `input-${Math.random().toString(36)}`;
 
