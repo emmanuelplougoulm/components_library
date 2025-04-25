@@ -29,6 +29,15 @@ import { Icon } from 'astro-icon/components';
         >
           <Icon name="calendar-event" slot="iconLeft" />
         </RadioButton>
+        <RadioButton
+          label="weekly"
+          size="xxl"
+          selected={false}
+          disabled={false}
+          client:load
+        >
+          <Icon name="calendar-event" slot="iconLeft" />
+        </RadioButton>
       </fieldset>
     </div>
   </body>
