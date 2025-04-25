@@ -17,7 +17,7 @@ type TToggleProps = {
   size: string;
 };
 
-const inputId = `input-${Math.random().toString(36).substr(2, 9)}`;
+const uniqueId = `input-${Math.random().toString(36)}`;
 
 const disabled = defineModel<boolean>('disabled');
 const checked = defineModel<boolean>('checked');
