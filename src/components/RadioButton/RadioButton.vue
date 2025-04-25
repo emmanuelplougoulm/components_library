@@ -1,7 +1,21 @@
 <template>
   <div :class="[`radio`, `size-${size}`, { selected: selected }, { disabled: disabled }]">
+    <div v-if="$slots.iconLeft" :class="[`icon`, `icon_${size}`]">
+      <slot name="iconLeft"></slot>
+    </div>
     <input type="radio" :id="inputId" :checked="selected" />
-    <label :class="[`radio__label`, `size-${size}`]" :for="inputId">{{ label }}</label>
+    <label
+      v-if="!$slots.iconOnly"
+      :class="[`radio__label`, `size-${size}`]"
+      :for="inputId"
+      >{{ label }}</label
+    >
+    <div v-if="$slots.iconRight" :class="[`icon`, `icon_${size}`]">
+      <slot name="iconRight"></slot>
+    </div>
+    <div v-if="$slots.iconOnly" :class="[`icon`, `icon_${size}`]">
+      <slot name="iconOnly"></slot>
+    </div>
   </div>
 </template>
 
