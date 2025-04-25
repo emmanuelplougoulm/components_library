@@ -1,5 +1,5 @@
 <template>
-  <div :class="[`radio`, { selected: selected }, { disabled: disabled }]">
+  <div :class="[`radio`, `size-${size}`, { selected: selected }, { disabled: disabled }]">
     <input type="radio" :id="inputId" :checked="selected" />
     <label :class="[`radio__label`, `size-${size}`]" :for="inputId">{{ label }}</label>
   </div>
@@ -29,7 +29,6 @@ defineProps<TButtonProps>();
   align-items: center;
   gap: 4px;
   background-color: #ffffff;
-  padding: 8px 12px;
   border-radius: 4px;
   border-width: 1px;
   border-style: solid;
@@ -75,5 +74,20 @@ defineProps<TButtonProps>();
 .radio__label.size-xxl {
   font-size: 18px;
   line-height: 28px;
+}
+
+/* RADIO CONTAINER SIZES */
+.radio.size-sm {
+  padding: 8px 12px;
+}
+.radio.size-md {
+  padding: 10px 16px;
+}
+.radio.size-lg {
+  padding: 12px 20px;
+}
+.radio.size-xl,
+.radio.size-xxl {
+  padding: 16px 24px;
 }
 </style>
