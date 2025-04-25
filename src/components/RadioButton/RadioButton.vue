@@ -1,7 +1,7 @@
 <template>
   <div :class="[`radio`, { selected: selected }, { disabled: disabled }]">
     <input type="radio" :id="inputId" :checked="selected" />
-    <label :for="inputId">{{ label }}</label>
+    <label :class="[`radio__label`, `size-${size}`]" :for="inputId">{{ label }}</label>
   </div>
 </template>
 
@@ -12,7 +12,7 @@ import { type TSize } from '@custom-types/types';
 const inputId = `input-${Math.random().toString(36)}`;
 
 type TButtonProps = {
-  size: TSize;
+  size: 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
   label: string;
   selected: boolean;
   disabled: boolean;
@@ -58,5 +58,22 @@ defineProps<TButtonProps>();
   border: none;
   pointer-events: none;
   background-color: #f5f5f5;
+}
+
+/* FONT SIZES */
+.radio__label.size-sm {
+  font-size: 14px;
+  line-height: 20px;
+}
+.radio__label.size-md,
+.radio__label.size-lg {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.radio__label.size-xl,
+.radio__label.size-xxl {
+  font-size: 18px;
+  line-height: 28px;
 }
 </style>
