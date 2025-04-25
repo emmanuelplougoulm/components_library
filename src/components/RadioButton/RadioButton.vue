@@ -1,6 +1,6 @@
 <template>
   <div :class="[`radio`, `size-${size}`, { selected: selected }, { disabled: disabled }]">
-    <div v-if="$slots.iconLeft" :class="[`icon`, `icon_${size}`]">
+    <div v-if="$slots.iconLeft" :class="[`icon`, `size-${size}`]">
       <slot name="iconLeft"></slot>
     </div>
     <input type="radio" :id="inputId" :checked="selected" />
@@ -10,10 +10,10 @@
       :for="inputId"
       >{{ label }}</label
     >
-    <div v-if="$slots.iconRight" :class="[`icon`, `icon_${size}`]">
+    <div v-if="$slots.iconRight" :class="[`icon`, `size-${size}`]">
       <slot name="iconRight"></slot>
     </div>
-    <div v-if="$slots.iconOnly" :class="[`icon`, `icon_${size}`]">
+    <div v-if="$slots.iconOnly" :class="[`icon`, `size-${size}`]">
       <slot name="iconOnly"></slot>
     </div>
   </div>
@@ -102,5 +102,32 @@ defineProps<TButtonProps>();
 .radio.size-xl,
 .radio.size-xxl {
   padding: 16px 24px;
+}
+
+/* ICON SIZES */
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.icon.size-sm,
+.icon.size-md,
+.icon.size-lg {
+  width: 15.850911140441895px;
+  height: 15.075139045715332px;
+}
+
+.icon.size-xl,
+.icon.size-xxl {
+  width: 19.02109146118164px;
+  height: 18.090166091918945px;
 }
 </style>
