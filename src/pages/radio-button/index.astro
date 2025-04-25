@@ -1,6 +1,7 @@
 ---
 import RadioButton from '@components/RadioButton/RadioButton.vue';
 import '@styles/global.css';
+import { Icon } from 'astro-icon/components';
 ---
 
 <html lang="fr">
@@ -25,28 +26,27 @@ import '@styles/global.css';
           selected={false}
           disabled={false}
           client:load
-        />
+        >
+          <Icon name="star" slot="iconLeft" />
+        </RadioButton>
         <RadioButton
           label="weekly"
-          size="md"
+          size="sm"
           selected={false}
           disabled={false}
           client:load
-        />
+        >
+          <Icon name="star" slot="iconRight" />
+        </RadioButton>
         <RadioButton
           label="weekly"
-          size="lg"
+          size="sm"
           selected={false}
           disabled={false}
           client:load
-        />
-        <RadioButton
-          label="weekly"
-          size="xl"
-          selected={false}
-          disabled={false}
-          client:load
-        />
+        >
+          <Icon name="star" slot="iconOnly" />
+        </RadioButton>
       </fieldset>
     </div>
   </body>
