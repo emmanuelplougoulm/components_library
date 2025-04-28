@@ -1,5 +1,8 @@
 ---
 import Checkbox from '@components/Checkbox/Checkbox.vue';
+import { ref } from 'vue';
+
+const isChecked = ref(false);
 ---
 
 <html lang="fr">
@@ -17,7 +20,9 @@ import Checkbox from '@components/Checkbox/Checkbox.vue';
   </head>
   <body>
     <div class="container">
-      <Checkbox text="This is a text" />
+      <Checkbox text="This is a text" client:load />
+      <Checkbox text="This is a text" client:load />
+      <Checkbox text="This is a text" client:load />
     </div>
   </body>
 </html>
@@ -29,6 +34,7 @@ import Checkbox from '@components/Checkbox/Checkbox.vue';
     justify-content: center;
     align-items: center;
     height: 100vh;
+    font-family: 'Noto Sans';
   }
 
   .container {
