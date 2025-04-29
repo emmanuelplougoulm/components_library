@@ -1,6 +1,15 @@
 <template>
   <div :class="[`pagination`, { disabled: disabled }]">
-    <div :class="[`pagination__text`]">{{ text }}</div>
+    <div v-if="$slots.iconLeft" :class="[`icon`]">
+      <slot name="iconLeft"></slot>
+    </div>
+    <div v-if="!$slots.iconOnly" :class="[`pagination__text`]">{{ text }}</div>
+    <div v-if="$slots.iconRight" :class="[`icon`]">
+      <slot name="iconRight"></slot>
+    </div>
+    <div v-if="$slots.iconOnly" :class="[`icon`]">
+      <slot name="iconOnly"></slot>
+    </div>
   </div>
 </template>
 
@@ -68,5 +77,16 @@ defineProps<TPaginationProps>();
 
 .pagination.disabled .pagination__text {
   color: #a3a3a3;
+}
+
+/* ICON SIZES */
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  color: #525252;
+  fill: #525252;
 }
 </style>

@@ -18,7 +18,15 @@ import { paginationItems } from '@components/Pagination/config.ts';
   </head>
   <body>
     <div class="container">
-      <Pagination items={paginationItems} itemsPerPage={5} client:load />
+      <Pagination
+        iconOnly={false}
+        items={paginationItems}
+        itemsPerPage={10}
+        client:load
+      />
+      <Pagination iconOnly={false} items={paginationItems} itemsPerPage={5} client:load />
+      <Pagination iconOnly={false} items={paginationItems} itemsPerPage={5} client:load />
+      <Pagination iconOnly={false} items={paginationItems} itemsPerPage={5} client:load />
     </div>
   </body>
 </html>
@@ -35,6 +43,8 @@ import { paginationItems } from '@components/Pagination/config.ts';
 
   .container {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     gap: 1.5rem;
   }
 </style>
