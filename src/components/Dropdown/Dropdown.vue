@@ -8,7 +8,7 @@
       <div
         v-for="(option, index) in options"
         :key="index"
-        class="option"
+        :class="[`option`, { isSelected: isSelected(option.name) }]"
         @click.stop="selectOption(option.name)"
       >
         <template v-if="hasIcon">
@@ -47,6 +47,10 @@ watch(
     selectedOption.value = val;
   }
 );
+
+const isSelected = (name) => {
+  return selectedOption.value === name;
+};
 
 const toggleDropdown = () => {
   isOpen.value = !isOpen.value;
@@ -97,6 +101,15 @@ const selectOption = (option) => {
   color: #171717;
 }
 
+.dropdown .isSelected::after {
+  content: url('../../icons/checkbox-circle.svg');
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin-left: 4px;
+}
+
 /* NOT WORKING */
 
 /* .dropdown .selected:focus {
@@ -145,6 +158,6 @@ const selectOption = (option) => {
 /* REMAINING TODO 
   - FOCUS STATE STYLES
   - DISABLED STATE STYLES
-  - SELECTED STATE STYLES 
+  - SELECTED STATE STYLES ( push checkmark to end of div)
 */
 </style>

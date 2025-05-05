@@ -1,6 +1,6 @@
 const options = [
-  { name: 'public', icon: 'lock' },
-  { name: 'unlisted', icon: 'lock' },
+  { name: 'private', icon: 'lock' },
+  { name: 'unlisted', icon: 'mist' },
   { name: 'public', icon: 'globe' }
 ];
 
