@@ -2,15 +2,22 @@
   <div class="dropdown" @click="toggleDropdown" @blur="closeDropdown">
     <div class="selected">
       {{ selectedOption || placeholder }}
+      <BaseIcon v-if="hasIcon" class="icon" iconName="arrow-down" />
     </div>
     <div v-if="isOpen" class="options">
       <div
         v-for="(option, index) in options"
         :key="index"
         class="option"
-        @click.stop="selectOption(option)"
+        @click.stop="selectOption(option.name)"
       >
-        {{ option }}
+        <template v-if="hasIcon">
+          <BaseIcon class="icon" :iconName="option.icon" />
+          <span>{{ option.name }}</span>
+        </template>
+        <template v-else>
+          {{ option.name }}
+        </template>
       </div>
     </div>
   </div>
@@ -18,11 +25,13 @@
 
 <script setup lang="ts">
 import { ref, defineProps, watch } from 'vue';
+import BaseIcon from '@components/BaseIcon/BaseIcon.vue';
 
 type TDropdownProps = {
-  options: String[];
+  options: { name: string; icon: string }[];
   placeholder: String;
   modelValue: string;
+  hasIcon: boolean;
 };
 
 const { options, modelValue } = defineProps<TDropdownProps>();
@@ -43,15 +52,15 @@ const toggleDropdown = () => {
   isOpen.value = !isOpen.value;
 };
 
-function closeDropdown() {
+const closeDropdown = () => {
   isOpen.value = false;
-}
+};
 
-function selectOption(option) {
+const selectOption = (option) => {
   selectedOption.value = option;
   emit('update:modelValue', option);
   isOpen.value = false;
-}
+};
 </script>
 
 <style scoped>
@@ -70,9 +79,11 @@ function selectOption(option) {
 .dropdown .selected {
   display: flex;
   align-items: center;
-  gap: 4px;
+  justify-content: space-between;
+  gap: 8px;
   background-color: #ffffff;
 
+  border-radius: 4px;
   padding: 8px 12px;
 
   border: 0.5px solid #e5e5e5;
@@ -85,6 +96,16 @@ function selectOption(option) {
   line-height: 20px;
   color: #171717;
 }
+
+/* NOT WORKING */
+
+/* .dropdown .selected:focus {
+  border-radius: 4px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #c7d2fe;
+} */
+
 .dropdown .options {
   position: absolute;
   top: 100%;
@@ -104,6 +125,10 @@ function selectOption(option) {
 }
 
 .options .option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
   padding: 8px;
   cursor: pointer;
 }
@@ -111,4 +136,15 @@ function selectOption(option) {
 .options .option:hover {
   background-color: #fafafa;
 }
+
+.icon {
+  width: 16.666667938232422px;
+  height: 16.666667938232422px;
+}
+
+/* REMAINING TODO 
+  - FOCUS STATE STYLES
+  - DISABLED STATE STYLES
+  - SELECTED STATE STYLES 
+*/
 </style>
