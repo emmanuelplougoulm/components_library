@@ -18,7 +18,21 @@ import { options } from '@components/Dropdown/config.ts';
   </head>
   <body>
     <div class="container">
-      <Dropdown options={options} placeholder="Select" modelValue={''} client:load />
+      <Dropdown
+        options={options}
+        hasIcon
+        placeholder="Select"
+        modelValue={''}
+        client:load
+      />
+
+      <!-- <Dropdown
+        options={options}
+        hasIcon={false}
+        placeholder="Select"
+        modelValue={''}
+        client:load
+      /> -->
     </div>
   </body>
 </html>
