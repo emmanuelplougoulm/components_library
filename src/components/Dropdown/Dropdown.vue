@@ -1,13 +1,13 @@
 <template>
   <div class="dropdown" @click="toggleDropdown" @blur="closeDropdown">
-    <div class="dropdown-selected">
+    <div class="selected">
       {{ selectedOption || placeholder }}
     </div>
-    <div v-if="isOpen" class="dropdown-options">
+    <div v-if="isOpen" class="options">
       <div
-        v-for="(option, idx) in options"
-        :key="idx"
-        class="dropdown-option"
+        v-for="(option, index) in options"
+        :key="index"
+        class="option"
         @click.stop="selectOption(option)"
       >
         {{ option }}
@@ -16,40 +16,32 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, defineProps, watch } from 'vue';
-import { options } from './config';
 
-const props = defineProps({
-  options: {
-    type: Array,
-    required: true
-  },
-  // modelValue: {
-  //   type: String,
-  //   default: ''
-  // },
-  placeholder: {
-    type: String,
-    default: 'Sélectionnez...'
-  }
-});
+type TDropdownProps = {
+  options: String[];
+  placeholder: String;
+  modelValue: string;
+};
+
+const { options, modelValue } = defineProps<TDropdownProps>();
 
 const emit = defineEmits(['update:modelValue']);
 
 const isOpen = ref(false);
-const selectedOption = ref(props.modelValue);
+const selectedOption = ref(modelValue);
 
 watch(
-  () => props.modelValue,
+  () => modelValue,
   (val) => {
     selectedOption.value = val;
   }
 );
 
-function toggleDropdown() {
+const toggleDropdown = () => {
   isOpen.value = !isOpen.value;
-}
+};
 
 function closeDropdown() {
   isOpen.value = false;
@@ -63,15 +55,19 @@ function selectOption(option) {
 </script>
 
 <style scoped>
+* {
+  box-sizing: border-box;
+}
+
 .dropdown {
   position: relative;
   width: 272px;
   cursor: pointer;
-  border: 1px red solid;
+  text-transform: capitalize;
 
   font-family: 'Noto Sans';
 }
-.dropdown-selected {
+.dropdown .selected {
   display: flex;
   align-items: center;
   gap: 4px;
@@ -89,7 +85,7 @@ function selectOption(option) {
   line-height: 20px;
   color: #171717;
 }
-.dropdown-options {
+.dropdown .options {
   position: absolute;
   top: 100%;
   left: 0;
@@ -106,11 +102,13 @@ function selectOption(option) {
   line-height: 20px;
   color: #171717;
 }
-.dropdown-option {
+
+.options .option {
   padding: 8px;
   cursor: pointer;
 }
-.dropdown-option:hover {
+
+.options .option:hover {
   background-color: #fafafa;
 }
 </style>
