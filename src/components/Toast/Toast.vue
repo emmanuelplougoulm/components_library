@@ -1,6 +1,6 @@
 <template>
-  <div class="toast" id="toast">
-    <div class="toast__content">
+  <div class="toast">
+    <div :class="[`toast__content`, `toast__content--${status}`]">
       <div class="toast__content__badge">{{ status }}</div>
       <div>{{ label }}</div>
     </div>
@@ -13,7 +13,6 @@ type TToastProps = {
   label: string;
 };
 
-const uniqueId = `input-${Math.random().toString(36)}`;
 const { status, label } = defineProps<TToastProps>();
 </script>
 
@@ -56,5 +55,28 @@ const { status, label } = defineProps<TToastProps>();
     0px 1px 3px rgba(0, 0, 0, 0.1),
     0px 1px 2px rgba(0, 0, 0, 0.06);
   border-radius: 9999px;
+}
+
+.toast__content--error {
+  color: #dc2626;
+  background: #fef2f2;
+}
+.toast__content__badge--error {
+  color: #991b1b;
+}
+
+.toast__content--success {
+  background: #f0fdf4;
+  color: #15803d;
+}
+
+.toast__content--warning {
+  color: #b45309;
+  background: #fffbeb;
+}
+
+.toast__content--info {
+  color: #525252;
+  background: #f9fafb;
 }
 </style>
