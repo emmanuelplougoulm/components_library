@@ -25,15 +25,15 @@
     "@svgr/plugin-jsx": "^8.1.0",
     "@svgr/plugin-svgo": "^8.1.0",
     "@types/node": "^22.14.1",
-    "astro": "^5.5.6",
+    "astro": "^5.7.11",
     "prettier": "^3.5.3",
     "prettier-plugin-astro": "^0.14.1",
     "vite-plugin-svgr": "^4.3.0",
     "vite-svg-loader": "^5.1.0"
   },
   "dependencies": {
-    "@astrojs/react": "^4.2.3",
-    "@astrojs/vue": "^5.0.9",
+    "@astrojs/react": "^4.2.7",
+    "@astrojs/vue": "^5.0.13",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.2",
     "astro-icon": "^1.1.5",
