@@ -15,9 +15,9 @@ const handleClose = () => {
   <button @click="showModal = true">Open</button>
   <BaseModal :show="showModal" @close="showModal = false">
     <div class="content">
-      <div class="title__container">
-        <h2 class="title__text">Are you sure you want to <br />leave the process?</h2>
-        <BaseIcon class="title__icon" iconName="close-cross" />
+      <div class="title">
+        <h2 class="text">Are you sure you want to <br />leave the process?</h2>
+        <BaseIcon class="icon" iconName="close-cross" />
       </div>
       <p class="description">
         Your upgrade plan process will be cancelled. <br />You need to start again if you
@@ -59,14 +59,14 @@ p {
   gap: 8px;
 }
 
-.title__container {
+.content .title {
   display: flex;
   justify-content: space-between;
   gap: 8px;
   align-self: stretch;
 }
 
-.title__text {
+.content .title .text {
   font-weight: 600;
   font-size: 18px;
   line-height: 28px;
@@ -74,13 +74,13 @@ p {
   margin: 0;
 }
 
-.title__icon {
+.content .title .icon {
   width: 24px;
   height: 24px;
   color: #525252;
 }
 
-.description {
+.content .description {
   font-family: 'Noto Sans';
   font-weight: 400;
   font-size: 14px;
