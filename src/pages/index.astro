@@ -1,102 +1,234 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
 <html>
   <base href="{import.meta.env.BASE_URL}" />
   <body>
-    <h1>Hi recruiters and devs and welcome to my newly created component library</h1>
-    <p>
-      As I just started not all components are ready yet and the styling of this page is
-      close to 0.
-      <br />
-      Still you can find a list (feel free to test responsivness)
-      <br /> Next steps:
-      <br />
-      - Storybook setup to provide components testing
-      <br />
-      - Playwright setup to automate testing
-    </p>
-    <div>
-      <!-- <li>
-        <a href="https://emmanuelplougoulm.github.io/components_library/testimonial-card/"
-          >Testimonial card</a
-        >
-      </li> -->
-      <!-- <li>
-        <a href="https://emmanuelplougoulm.github.io/components_library/blog-card/"
-          >Blog card</a
-        >
-      </li> -->
-      <!-- <li>
-        <a href="https://emmanuelplougoulm.github.io/components_library/profile-card/"
-          >Profile card</a
-        >
-      </li> -->
-      <li>
-        <a href="https://emmanuelplougoulm.github.io/components_library/badge/"
-          >Badge component</a
-        >
-      </li>
-      <li>
-        <a href="https://emmanuelplougoulm.github.io/components_library/button/">Button</a
-        >
-      </li>
-      <li>
-        <a href="https://emmanuelplougoulm.github.io/components_library/navbar/">Navbar</a
-        >
-      </li>
-      <li>
-        <a href="https://emmanuelplougoulm.github.io/components_library/text-input/"
-          >Text input</a
-        >
-      </li>
-      <li>
-        <a href="https://emmanuelplougoulm.github.io/components_library/text-area/"
-          >Text area</a
-        >
-      </li>
-      <li>
-        <a href="https://emmanuelplougoulm.github.io/components_library/radio-button/"
-          >Radio button</a
-        >
-      </li>
-      <li>
-        <a href="https://emmanuelplougoulm.github.io/components_library/tabs-menu/"
-          >Tabs menu</a
-        >
-      </li>
-      <li>
-        <a href="https://emmanuelplougoulm.github.io/components_library/tabs-component/"
-          >Tabs component</a
-        >
-      </li>
-      <li>
-        <a href="https://emmanuelplougoulm.github.io/components_library/toggle/">Toggle</a
-        >
-      </li>
-      <li>
-        <a href="https://emmanuelplougoulm.github.io/components_library/tooltip/"
-          >Tooltip</a
-        >
-      </li>
-      <li>
-        <a href="https://emmanuelplougoulm.github.io/components_library/checkbox/"
-          >Checkbox</a
-        >
-      </li>
-      <li>
-        <a href="https://emmanuelplougoulm.github.io/components_library/pagination/"
-          >Pagination</a
-        >
-      </li>
-      <li>
-        <a href="https://emmanuelplougoulm.github.io/components_library/dropdown/"
-          >Dropdown</a
-        >
-      </li>
-      <li>
-        <a href="https://emmanuelplougoulm.github.io/components_library/modal/">Modal</a>
-      </li>
-      <li>
-        <a href="https://emmanuelplougoulm.github.io/components_library/toast/">Toast</a>
-      </li>
+    <div class="content">
+      <div class="presentation">
+        <h1 class="title">
+          Hi visitors, I am thrilled to introduce my brand new design system built with
+          Vue 3. This project is the result of many hours of work an reflection. I am
+          excited to share with you the details of its design and features.
+        </h1>
+
+        <h2 class="subtitle">Why a Design System?</h2>
+
+        <p class="paragraph">
+          For several years I've been working on user interfaces involving component
+          creation such as buttons, text input etc... Different teams different approaches
+          to implementing similar designs and logic... As I want to level-up on more
+          topics such as frontend architecture I needed a library that would speed up the
+          dev process letting me focus on how the information flows rather than how it
+          looks. A design system is crucial for ensuring consistency and efficiency in the
+          development of our applications. It standardizes components, styles, and best
+          practices, facilitating collaboration between designers and developers.
+        </p>
+
+        <h2 class="subtitle">Why Vue?</h2>
+
+        <p class="paragraph">
+          Meanwhile I am proficient on both React and Vue I chose Vue 3 for its
+          reactivity, flexibility, and active community. Vue 3 offers improved
+          performance, better state management, and a more intuitive syntax, making it an
+          ideal choice for building a modern and scalable design system.
+        </p>
+
+        <h2 class="subtitle">Next steps</h2>
+        <ul>
+          <li class="next">Storybook setup to provide components testing</li>
+          <li class="next">Playwright setup to automate testing</li>
+        </ul>
+        <div class="spacer"></div>
+        <div class="technos">
+          Made with
+          <Icon name="vuejs" />
+          <Icon name="astrojs" />
+        </div>
+      </div>
+      <div class="projects">
+        <h2 class="subtitle">Design system</h2>
+        <ul>
+          <li>
+            <a href="https://emmanuelplougoulm.github.io/components_library/badge/"
+              >Badge component</a
+            >
+          </li>
+          <li>
+            <a href="https://emmanuelplougoulm.github.io/components_library/button/"
+              >Button</a
+            >
+          </li>
+          <li>
+            <a href="https://emmanuelplougoulm.github.io/components_library/navbar/"
+              >Navbar</a
+            >
+          </li>
+          <li>
+            <a href="https://emmanuelplougoulm.github.io/components_library/text-input/"
+              >Text input</a
+            >
+          </li>
+          <li>
+            <a href="https://emmanuelplougoulm.github.io/components_library/text-area/"
+              >Text area</a
+            >
+          </li>
+          <li>
+            <a href="https://emmanuelplougoulm.github.io/components_library/radio-button/"
+              >Radio button</a
+            >
+          </li>
+          <li>
+            <a href="https://emmanuelplougoulm.github.io/components_library/tabs-menu/"
+              >Tabs menu</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://emmanuelplougoulm.github.io/components_library/tabs-component/"
+              >Tabs component</a
+            >
+          </li>
+          <li>
+            <a href="https://emmanuelplougoulm.github.io/components_library/toggle/"
+              >Toggle</a
+            >
+          </li>
+          <li>
+            <a href="https://emmanuelplougoulm.github.io/components_library/tooltip/"
+              >Tooltip</a
+            >
+          </li>
+          <li>
+            <a href="https://emmanuelplougoulm.github.io/components_library/checkbox/"
+              >Checkbox</a
+            >
+          </li>
+          <li>
+            <a href="https://emmanuelplougoulm.github.io/components_library/pagination/"
+              >Pagination</a
+            >
+          </li>
+          <li>
+            <a href="https://emmanuelplougoulm.github.io/components_library/dropdown/"
+              >Dropdown</a
+            >
+          </li>
+          <li>
+            <a href="https://emmanuelplougoulm.github.io/components_library/modal/"
+              >Modal</a
+            >
+          </li>
+          <li>
+            <a href="https://emmanuelplougoulm.github.io/components_library/toast/"
+              >Toast</a
+            >
+          </li>
+        </ul>
+
+        <h2 class="subtitle">Marketing components</h2>
+        <ul>
+          <li>
+            <a
+              href="https://emmanuelplougoulm.github.io/components_library/testimonial-card/"
+              >Testimonial card</a
+            >
+          </li>
+          <li>
+            <a href="https://emmanuelplougoulm.github.io/components_library/blog-card/"
+              >Blog card</a
+            >
+          </li>
+          <li>
+            <a href="https://emmanuelplougoulm.github.io/components_library/profile-card/"
+              >Profile card</a
+            >
+          </li>
+        </ul>
+      </div>
     </div>
   </body>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+    }
+
+    body {
+      padding: 30px;
+      font-family: 'Noto Sans', sans-serif;
+      height: 100vh;
+    }
+
+    .content {
+      display: flex;
+      height: 100%;
+    }
+
+    .presentation,
+    .projects {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .presentation {
+      width: 700px;
+      margin-right: 100px;
+    }
+
+    .title {
+      font-size: 16px;
+      margin-bottom: 20px;
+      font-weight: 700;
+      color: rgb(33, 53, 71);
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: rgb(33, 53, 71);
+      margin-bottom: 10px;
+    }
+
+    .paragraph {
+      color: rgb(33, 53, 71);
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 300;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin-bottom: 40px;
+    }
+    ul li {
+      font-size: 14px;
+    }
+
+    .next {
+      color: rgb(33, 53, 71);
+      font-size: 12px;
+      line-height: 18px;
+      font-weight: 300;
+    }
+
+    .spacer {
+      flex-grow: 1;
+    }
+
+    .projects a {
+      font-size: 13px;
+      color: rgb(33, 53, 71);
+      text-decoration: none;
+    }
+
+    .projects a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </html>
