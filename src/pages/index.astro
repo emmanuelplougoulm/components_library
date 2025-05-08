@@ -16,35 +16,53 @@ import { Icon } from 'astro-icon/components';
         <h2 class="subtitle">Why a Design System?</h2>
 
         <p class="paragraph">
-          For several years I've been working on user interfaces involving component
-          creation such as buttons, text input etc... Different teams different approaches
-          to implementing similar designs and logic... As I want to level-up on more
-          topics such as frontend architecture I needed a library that would speed up the
-          dev process letting me focus on how the information flows rather than how it
-          looks. A design system is crucial for ensuring consistency and efficiency in the
-          development of our applications. It standardizes components, styles, and best
-          practices, facilitating collaboration between designers and developers.
+          For several years, I have been working on <strong>user interfaces</strong> involving
+          the creation of common components such as buttons, text inputs, and more. Different
+          teams often adopt different approaches to implementing <strong
+            >similar designs and logic</strong
+          >, which can lead to inconsistencies. As I aim to deepen my expertise in areas
+          such as <strong>frontend architecture</strong>, I needed a library that would
+          accelerate the development process and allow me to focus more on how information
+          flows rather than on visual details. A design system plays a crucial role in
+          ensuring consistency and efficiency in application development. By standardizing
+          components, styles, and best practices, it facilitates seamless collaboration
+          between designers and developers.
         </p>
 
         <h2 class="subtitle">Why Vue?</h2>
 
         <p class="paragraph">
-          Meanwhile I am proficient on both React and Vue I chose Vue 3 for its
-          reactivity, flexibility, and active community. Vue 3 offers improved
-          performance, better state management, and a more intuitive syntax, making it an
-          ideal choice for building a modern and scalable design system.
+          Although I am proficient in both <strong>React and Vue</strong>, I opted for Vue
+          3 for this project because of its reactive data binding, flexibility, and strong
+          community support. Vue 3 offers enhanced performance, improved state management,
+          and a
+          <strong>more intuitive syntax</strong>, making it an excellent choice for
+          developing a modern and <strong>scalable design system</strong>
         </p>
 
-        <h2 class="subtitle">Next steps</h2>
+        <h2 class="subtitle subtitle__next">Next steps are:</h2>
         <ul>
-          <li class="next">Storybook setup to provide components testing</li>
-          <li class="next">Playwright setup to automate testing</li>
+          <li class="next">
+            <a href="https://storybook.js.org/">
+              <Icon name="storybook" />
+            </a>Storybook setup for interactive testing
+          </li>
+          <li class="next">
+            <a href="https://playwright.dev/">
+              <Icon name="playwright" />
+            </a>Playwright setup for end-to-end testing
+          </li>
         </ul>
         <div class="spacer"></div>
         <div class="technos">
           Made with
-          <Icon name="vuejs" />
-          <Icon name="astrojs" />
+          <a href="https://vuejs.org/">
+            <Icon name="vue" />
+          </a>
+          and
+          <a href="https://astro.build/">
+            <Icon name="astro" />
+          </a>
         </div>
       </div>
       <div class="projects">
@@ -205,16 +223,18 @@ import { Icon } from 'astro-icon/components';
       list-style-type: none;
       padding-left: 0;
       margin-bottom: 40px;
-    }
-    ul li {
       font-size: 14px;
     }
 
     .next {
       color: rgb(33, 53, 71);
-      font-size: 12px;
+      font-size: 14px;
       line-height: 18px;
-      font-weight: 300;
+      font-weight: 600;
+    }
+
+    .subtitle.subtitle__next {
+      margin-top: 40px;
     }
 
     .spacer {
@@ -223,12 +243,25 @@ import { Icon } from 'astro-icon/components';
 
     .projects a {
       font-size: 13px;
-      color: rgb(33, 53, 71);
+      color: rgb(66, 184, 131);
       text-decoration: none;
     }
 
     .projects a:hover {
       text-decoration: underline;
+      color: rgb(33, 53, 71);
+    }
+
+    .technos {
+      display: flex;
+      align-items: center;
+
+      gap: 4px;
+      font-size: 14px;
+    }
+
+    .technos a svg {
+      align-self: baseline;
     }
   </style>
 </html>
