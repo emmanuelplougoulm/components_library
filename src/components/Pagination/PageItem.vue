@@ -1,13 +1,13 @@
 <template>
-  <div :class="[`pagination`, { disabled: disabled }]">
-    <div v-if="$slots.iconLeft" :class="[`icon`]">
+  <div :class="[`pagination`, { [`pagination__disabled`]: disabled }]">
+    <div v-if="$slots.iconLeft" :class="[`pagination__icon`]">
       <slot name="iconLeft"></slot>
     </div>
     <div v-if="!$slots.iconOnly" :class="[`pagination__text`]">{{ text }}</div>
-    <div v-if="$slots.iconRight" :class="[`icon`]">
+    <div v-if="$slots.iconRight" :class="[`pagination__icon`]">
       <slot name="iconRight"></slot>
     </div>
-    <div v-if="$slots.iconOnly" :class="[`icon`]">
+    <div v-if="$slots.iconOnly" :class="[`pagination__icon`]">
       <slot name="iconOnly"></slot>
     </div>
   </div>
@@ -71,7 +71,7 @@ defineProps<TPaginationProps>();
     rgb(0.2666666805744171 0.2980392277240753 0.9058823585510254 / 0.12);
 }
 
-.pagination.disabled {
+.pagination.pagination__disabled {
   pointer-events: none;
 }
 
@@ -80,7 +80,7 @@ defineProps<TPaginationProps>();
 }
 
 /* ICON SIZES */
-.icon {
+.pagination__icon {
   display: flex;
   justify-content: center;
   align-items: center;
