@@ -1,11 +1,11 @@
 <template>
-  <div class="main-container">
-    <header class="navbar-container">
-      <div class="logo-container">
-        <img :src="LogoIcon" class="logo_icon" />
-        <span class="logo-text">Abstractly</span>
+  <div class="navbar">
+    <header class="navbar__header">
+      <div class="navbar__logo">
+        <img :src="LogoIcon" class="navbar__logo__icon" />
+        <span class="navbar__logo__text">Abstractly</span>
       </div>
-      <nav class="navigation">
+      <nav class="navbar__nav">
         <Button
           v-for="link in links"
           :size="link.size"
@@ -13,7 +13,7 @@
           :label="link.label"
         />
       </nav>
-      <div class="cta_buttons">
+      <div class="navbar__cta__buttons">
         <Button
           v-for="ctaButton in ctaButtons"
           :size="ctaButton.size"
@@ -21,11 +21,12 @@
           :label="ctaButton.label"
         />
       </div>
-      <img class="burger_menu" :src="BurgerMenu" @click="toggleMenu" />
+      <img class="navbar__burger__menu" :src="BurgerMenu" @click="toggleMenu" />
     </header>
 
-    <div :class="[{ open: isMenuOpen }, `slideout_menu`]">
-      <nav class="slideout_menu_nav">
+    <!-- TODO RENAMING -->
+    <div :class="[{ [`navbar--open`]: isMenuOpen }, `navbar__slideout_menu`]">
+      <nav class="navbar__slideout_menu__nav">
         <Button
           v-for="link in links"
           :size="link.size"
@@ -33,7 +34,7 @@
           :label="link.label"
         />
       </nav>
-      <div class="slideout_menu_cta_buttons">
+      <div class="navbar__slideout_menu__cta__buttons">
         <Button
           v-for="ctaButton in ctaButtons"
           :size="ctaButton.size"
@@ -85,7 +86,7 @@ const { links, ctaButtons } = defineProps<TNavbarProps>();
   box-sizing: border-box;
 }
 
-.navbar-container {
+.navbar__header {
   height: 84px;
   padding: 16px 112px 0px;
   display: flex;
@@ -94,14 +95,14 @@ const { links, ctaButtons } = defineProps<TNavbarProps>();
   gap: 96px;
 }
 
-.logo-container {
+.navbar__logo {
   display: inline-flex;
   align-items: center;
   flex-wrap: nowrap;
   gap: 4px;
 }
 
-.logo-text {
+.navbar__logo__text {
   font-family: 'Noto Sans';
   font-weight: 700;
   font-size: 16px;
@@ -109,23 +110,23 @@ const { links, ctaButtons } = defineProps<TNavbarProps>();
   color: #171717;
 }
 
-.logo_icon {
+.navbar__logo__icon {
   width: 28px;
   height: 28px;
 }
 
-.navigation {
+.navbar__nav {
   display: inline-flex;
   flex-grow: 1;
   gap: 32px;
 }
 
-.cta_buttons {
+.navbar__cta__buttons {
   display: inline-flex;
   gap: 16px;
 }
 
-.burger_menu {
+.navbar__burger__menu {
   display: none;
   width: 15px;
   height: 13.333333015441895px;
@@ -143,7 +144,7 @@ TODO: find a better way to do it
 .slideout_container {
   position: relative;
 }
-.slideout_menu {
+.navbar__slideout_menu {
   position: fixed;
   top: 70px;
   bottom: 0;
@@ -159,18 +160,18 @@ TODO: find a better way to do it
   z-index: 1000;
 }
 
-.slideout_menu_nav {
+.navbar__slideout_menu__nav {
   display: flex;
   flex-direction: column;
   gap: 16px;
   flex-grow: 1;
 }
 
-.slideout_menu_nav button {
+.navbar__slideout_menu__nav button {
   width: fit-content;
 }
 
-.slideout_menu_cta_buttons {
+.navbar__slideout_menu__cta__buttons {
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -178,36 +179,36 @@ TODO: find a better way to do it
 
 /* TABLET */
 @media screen and (max-width: 1100px) {
-  .navbar-container {
+  .navbar__header {
     justify-content: space-between;
     padding: 0px 32px;
     height: 68px;
     border-radius: 6px;
   }
 
-  .cta_buttons,
-  .navigation {
+  .navbar__cta__buttons,
+  .navbar__nav {
     display: none;
   }
 
-  .burger_menu {
+  .navbar__burger__menu {
     display: block;
   }
 
-  .slideout_menu.open {
+  .navbar__slideout_menu.navbar--open {
     transform: translateX(0);
   }
 }
 
 /* MOBILE */
 @media screen and (max-width: 375px) {
-  .main-container {
+  .navbar {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
   }
 
-  .navbar-container {
+  .navbar__header {
     padding: 0 16px;
   }
 
