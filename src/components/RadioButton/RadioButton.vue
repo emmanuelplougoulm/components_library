@@ -2,21 +2,26 @@
   <div
     @click="handleSelected"
     :id="radioId"
-    :class="[`radio`, `size-${size}`, { selected: selected }, { disabled: disabled }]"
+    :class="[
+      `radio`,
+      `radio--size--${size}`,
+      { [`radio--selected`]: selected },
+      { [`radio--disabled`]: disabled }
+    ]"
   >
-    <div v-if="$slots.iconLeft" :class="[`icon`, `size-${size}`]">
+    <div v-if="$slots.iconLeft" :class="[`radio__icon`, `radio--size--${size}`]">
       <slot name="iconLeft"></slot>
     </div>
     <label
       v-if="!$slots.iconOnly"
-      :class="[`radio__label`, `size-${size}`]"
+      :class="[`radio__label`, `radio--size--${size}`]"
       :for="radioId"
       >{{ label }}</label
     >
-    <div v-if="$slots.iconRight" :class="[`icon`, `size-${size}`]">
+    <div v-if="$slots.iconRight" :class="[`radio__icon`, `radio--size--${size}`]">
       <slot name="iconRight"></slot>
     </div>
-    <div v-if="$slots.iconOnly" :class="[`icon`, `size-${size}`]">
+    <div v-if="$slots.iconOnly" :class="[`radio__icon`, `radio--size--${size}`]">
       <slot name="iconOnly"></slot>
     </div>
   </div>
@@ -70,73 +75,73 @@ const handleSelected = () => {
     rgb(0.2666666805744171 0.2980392277240753 0.9058823585510254 / 0.12);
 }
 /* SELECTED */
-.radio.selected {
+.radio--selected {
   border-color: #4f46e5;
 }
 
 /* DISABLED */
-.radio.disabled {
+.radio--disabled {
   border: none;
   pointer-events: none;
   background-color: #f5f5f5;
 }
 
 /* FONT SIZES */
-.radio__label.size-sm {
+.radio__label.radio--size--sm {
   font-size: 14px;
   line-height: 20px;
 }
-.radio__label.size-md,
-.radio__label.size-lg {
+.radio__label.radio--size--md,
+.radio__label.radio--size--lg {
   font-size: 16px;
   line-height: 24px;
 }
 
-.radio__label.size-xl,
-.radio__label.size-xxl {
+.radio__label.radio--size--xl,
+.radio__label.radio--size--xxl {
   font-size: 18px;
   line-height: 28px;
 }
 
 /* RADIO CONTAINER SIZES */
-.radio.size-sm {
+.radio.radio--size--sm {
   padding: 8px 12px;
 }
-.radio.size-md {
+.radio.radio--size--md {
   padding: 10px 16px;
 }
-.radio.size-lg {
+.radio.radio--size--lg {
   gap: 6px;
   padding: 12px 20px;
 }
-.radio.size-xl,
-.radio.size-xxl {
+.radio.radio--size--xl,
+.radio.radio--size--xxl {
   gap: 6px;
   padding: 16px 24px;
 }
 
 /* ICON SIZES */
-.icon {
+.radio__icon {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.icon svg {
+.radio__icon svg {
   width: 100%;
   height: 100%;
   fill: currentColor;
 }
 
-.icon.size-sm,
-.icon.size-md,
-.icon.size-lg {
+.radio__icon.radio--size--sm,
+.radio__icon.radio--size--md,
+.radio__icon.radio--size--lg {
   width: 15.850911140441895px;
   height: 15.075139045715332px;
 }
 
-.icon.size-xl,
-.icon.size-xxl {
+.radio__icon.radio--size--xl,
+.radio__icon.radio--size--xxl {
   width: 19.02109146118164px;
   height: 18.090166091918945px;
 }
