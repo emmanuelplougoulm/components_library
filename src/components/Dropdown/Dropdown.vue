@@ -1,18 +1,21 @@
 <template>
   <div class="dropdown" @click="toggleDropdown" @blur="closeDropdown">
-    <div class="selected">
+    <div class="dropdown__input--selected">
       {{ selectedOption || placeholder }}
-      <BaseIcon v-if="hasIcon" class="icon" iconName="arrow-down" />
+      <BaseIcon v-if="hasIcon" class="dropdown__input__icon" iconName="arrow-down" />
     </div>
-    <div v-if="isOpen" class="options">
+    <div v-if="isOpen" class="dropdown__options">
       <div
         v-for="(option, index) in options"
         :key="index"
-        :class="[`option`, { isSelected: isSelected(option.name) }]"
+        :class="[
+          `dropdown__option`,
+          { [`dropdown__option--selected`]: isSelected(option.name) }
+        ]"
         @click.stop="selectOption(option.name)"
       >
         <template v-if="hasIcon">
-          <BaseIcon class="icon" :iconName="option.icon" />
+          <BaseIcon class="dropdown__option__icon" :iconName="option.icon" />
           <span>{{ option.name }}</span>
         </template>
         <template v-else>
@@ -35,7 +38,6 @@ type TDropdownProps = {
 };
 
 const { options, modelValue } = defineProps<TDropdownProps>();
-
 const emit = defineEmits(['update:modelValue']);
 
 const isOpen = ref(false);
@@ -80,7 +82,7 @@ const selectOption = (option) => {
 
   font-family: 'Noto Sans';
 }
-.dropdown .selected {
+.dropdown__input--selected {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -101,7 +103,7 @@ const selectOption = (option) => {
   color: #171717;
 }
 
-.dropdown .isSelected::after {
+.dropdown__option--selected::after {
   content: url('../../icons/checkbox-circle.svg');
   display: inline-block;
   width: 16px;
@@ -119,7 +121,7 @@ const selectOption = (option) => {
   border-color: #c7d2fe;
 } */
 
-.dropdown .options {
+.dropdown__options {
   position: absolute;
   top: 100%;
   left: 0;
@@ -137,7 +139,7 @@ const selectOption = (option) => {
   color: #171717;
 }
 
-.options .option {
+.dropdown__option {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -146,11 +148,12 @@ const selectOption = (option) => {
   cursor: pointer;
 }
 
-.options .option:hover {
+.dropdown__option:hover {
   background-color: #fafafa;
 }
 
-.icon {
+.dropdown__input__icon,
+.dropdown__option__icon {
   width: 16.666667938232422px;
   height: 16.666667938232422px;
 }
