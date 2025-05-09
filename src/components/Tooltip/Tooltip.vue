@@ -1,6 +1,8 @@
 <template>
   <div :class="[`tooltip__container`]">
-    <span :class="[`tooltip ${position}`, { visible: visible }]">{{ text }}</span>
+    <span :class="[`tooltip ${position}`, { [`tooltip--visible`]: visible }]">{{
+      text
+    }}</span>
   </div>
 </template>
 
@@ -72,7 +74,7 @@ const { text, position, visible } = defineProps<TTooltipProps>();
 }
 
 /* VISIBLE */
-.tooltip.visible {
+.tooltip--visible {
   opacity: 1;
 }
 
