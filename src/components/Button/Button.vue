@@ -1,27 +1,27 @@
 <template>
   <button
-    class="button"
     :class="[
-      `button_${variant}`,
-      `button_${size}`,
-      { disabled: disabled },
-      { button_icon_only: $slots.iconOnly }
+      `button`,
+      `button--${variant}`,
+      `button--${size}`,
+      { ['button--disabled']: disabled },
+      { ['button--icon--only']: $slots.iconOnly }
     ]"
     :disabled="disabled"
     @click="onClick"
     role="button"
   >
-    <div v-if="$slots.iconLeft" class="button_icon" :class="[`button_icon_${size}`]">
+    <div v-if="$slots.iconLeft" :class="[`button__icon ,button__icon--${size}`]">
       <slot name="iconLeft"></slot>
     </div>
     <div v-if="label">
       {{ label }}
     </div>
-    <div v-if="$slots.iconRight" class="button_icon" :class="[`button_icon_${size}`]">
+    <div v-if="$slots.iconRight" :class="[`button__icon ,button__icon--${size}`]">
       <slot name="iconRight"></slot>
     </div>
 
-    <div v-if="$slots.iconOnly" class="button_icon" :class="[`button_icon_${size}`]">
+    <div v-if="$slots.iconOnly" :class="[`button__icon ,button__icon--${size}`]">
       <slot name="iconOnly"></slot>
     </div>
   </button>
@@ -63,29 +63,29 @@ button {
 
 /* PRIMARY */
 
-.button_primary {
+.button--primary {
   background-color: var(--color-primary-bg);
   color: var(--color-primary-text);
 }
 
-.button_primary:hover {
+.button--primary:hover {
   background-color: var(--color-primary-hover-bg);
 }
 
-.button_primary:focus {
+.button--primary:focus {
   background-color: var(--color-primary-focus-bg);
   box-shadow: 0px 0px 0px 4px
     rgb(0.2666666805744171 0.2980392277240753 0.9058823585510254 / 0.12);
 }
 
-.button_primary.disabled {
+.button--primary.button--disabled {
   background-color: #f5f5f5;
   color: #a3a3a3;
 }
 
 /* SECONDARY */
 
-.button_secondary {
+.button--secondary {
   border: 0.5px solid #e5e5e5;
   background-color: var(--color-secondary-bg);
   color: var(--color-secondary-text);
@@ -94,62 +94,61 @@ button {
     0px 1px 3px 0 rgb(0 0 0 / 0.1);
 }
 
-.button_secondary:hover {
+.button--secondary:hover {
   background-color: var(--color-secondary-hover-bg);
   border-width: 1px;
 }
 
-.button_secondary:focus {
+.button--secondary:focus {
   background-color: var(--color-secondary-hover-bg);
   border-width: 1px;
   box-shadow: 0px 0px 0px 4px
     rgb(0.2666666805744171 0.2980392277240753 0.9058823585510254 / 0.12);
 }
 
-.button_secondary.disabled {
+.button--secondary.button--disabled {
   background-color: #f5f5f5;
   color: #a3a3a3;
 }
 
 /* TERTIARY */
 
-.button_tertiary {
+.button--tertiary {
   background-color: var(--color-tertiary-bg);
   color: #4338ca;
 }
-.button_tertiary:hover {
+.button--tertiary:hover {
   background-color: var(--color-tertiary-hover-bg);
   color: var(--color-tertiary-text);
 }
 
-.button_tertiary:focus {
+.button--tertiary:focus {
   background-color: var(--color-tertiary-focus-bg);
   box-shadow: 0px 0px 0px 4px
     rgb(0.2666666805744171 0.2980392277240753 0.9058823585510254 / 0.12);
 }
 
-.button_tertiary.disabled {
+.button_tertiary.button--disabled {
   background-color: #f5f5f5;
   color: #a3a3a3;
 }
 
 /* LINK COLOR */
-
-.button_link-color {
+.button--link-color {
   background-color: none;
   color: #4338ca;
 }
 
-.button_link-color {
+.button--link-color {
   background-color: var(--color-link-color-bg);
   color: var(--color-link-color-text);
 }
 
-.button_link-color:hover {
+.button--link-color:hover {
   color: var(--color-link-color-hover-text);
 }
 
-.button_link-color:focus {
+.button--link-color:focus {
   color: var(--color-link-color-focus-text);
   background-color: #ffffff;
   background-color: #ffffff;
@@ -158,30 +157,30 @@ button {
     rgb(0.2666666805744171 0.2980392277240753 0.9058823585510254 / 0.12);
 }
 
-.button_link-color.disabled,
-.button_link-gray.disabled {
+.button_link-color.button--disabled,
+.button_link-gray.button--disabled {
   color: #a3a3a3;
 }
 
-.button_link-color.button_md,
-.button_link-color.button_lg,
-.button_link-color.button_xl,
-.button_link-color.button_xxl {
+.button_link-color.button--md,
+.button_link-color.button--lg,
+.button_link-color.button--xl,
+.button_link-color.button--xxl {
   padding: 0;
 }
 
 /* LINK GRAY */
 
-.button_link-gray {
+.button--link-gray {
   background-color: var(--color-link-gray-bg);
   color: var(--color-link-gray-text);
 }
 
-.button_link-gray:hover {
+.button--link-gray:hover {
   color: var(--color-link-gray-hover-text);
 }
 
-.button_link-gray:focus {
+.button--link-gray:focus {
   color: var(--color-link-gray-focus-text);
   background-color: #ffffff;
   border-radius: 4px;
@@ -189,25 +188,25 @@ button {
     rgb(0.2666666805744171 0.2980392277240753 0.9058823585510254 / 0.12);
 }
 
-.button_link-gray.button_md,
-.button_link-gray.button_lg,
-.button_link-gray.button_xl,
-.button_link-gray.button_xxl {
+.button--link-gray.button--md,
+.button--link-gray.button--lg,
+.button--link-gray.button--xl,
+.button--link-gray.button--xxl {
   padding: 0;
 }
 
 /* DESTRUCTIVE */
 
-.button_destructive {
+.button--destructive {
   background-color: var(--color-destructive-bg);
   color: var(--color-destructive-text);
 }
 
-.button_destructive:hover {
+.button--destructive:hover {
   background-color: var(--color-destructive-hover-bg);
 }
 
-.button_destructive:focus {
+.button--destructive:focus {
   background-color: var(--color-destructive-focus-bg);
   box-shadow:
     0px 0px 0px 4px rgb(0.8509804010391235 0.1764705926179886 0.125490203499794 / 0.12),
@@ -216,76 +215,77 @@ button {
 
 /* SIZES */
 
-.button_md {
+.button--md {
   gap: 4px;
   padding: 10px 14px;
   font-size: 14px;
   line-height: 20px;
 }
 
-.button_lg {
+.button--lg {
   gap: 6px;
   padding: 10px 16px;
   font-size: 16px;
   line-height: 24px;
 }
 
-.button_xl {
+.button--xl {
   gap: 6px;
   padding: 12px 20px;
   font-size: 16px;
   line-height: 24px;
 }
 
-.button_xxl {
+.button--xxl {
   gap: 10px;
   padding: 16px 24px;
   font-size: 18px;
   line-height: 28px;
 }
 
-.button_xxl {
+.button--xxl {
   gap: 10px;
   padding: 16px 24px;
   font-size: 18px;
   line-height: 28px;
 }
 
-.button_icon {
+/*ICON*/
+.button__icon {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.button_icon_only.button_md {
+.button--icon--only.button--md {
   padding: 10px;
 }
 
-.button_icon_only.button_lg {
+.button--icon--only.button--lg {
   padding: 12px;
 }
 
-.button_icon_only.button_xl {
+.button--icon--only.button--xl {
   padding: 14px;
 }
 
-.button_icon_only.button_xxl {
+.button--icon--only.button--xxl {
   padding: 16px;
 }
 
-.button_icon_md,
-.button_icon_lg,
-.button_icon_xl {
+.button__icon--md,
+.button__icon--lg,
+.button__icon--xl {
   width: 15.850911140441895px;
   height: 15.075139045715332px;
 }
 
-.button_icon_xxl {
+.button__icon--xxl {
   width: 19.02109146118164px;
   height: 18.090166091918945px;
 }
 
-.button_icon svg {
+.button__icon svg {
   width: 100%;
   height: 100%;
   fill: currentColor;
