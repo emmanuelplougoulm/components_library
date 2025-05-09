@@ -5,8 +5,8 @@
       :id="uniqueId"
       :class="[
         `textarea__textarea`,
-        { textarea__limit: isLimitExceed },
-        { textarea__error: error }
+        { [`textarea--limit-exceed`]: isLimitExceed },
+        { [`textarea--error`]: error }
       ]"
       :placeholder="placeholder"
       :disabled="disabled"
@@ -15,11 +15,11 @@
       :aria-invalid="error ? 'true' : 'false'"
     ></textarea>
 
-    <div :class="[`textarea__messages`, { textarea__messages__start: error }]">
+    <div :class="[`textarea__messages`, { [`textarea__messages--flex-start`]: error }]">
       <p
         v-if="error"
         role="status"
-        class="textarea__error--message"
+        class="textarea__error__message"
         :id="`${uniqueId}-error`"
       >
         {{ errorMessage }}
@@ -27,7 +27,7 @@
 
       <span
         v-if="!error"
-        :class="[`textarea__count`, { textarea__count__limit: isLimitExceed }]"
+        :class="[`textarea__count`, { [`textarea__count--limit`]: isLimitExceed }]"
       >
         {{ `${text.length}/${LIMIT}` }}
       </span>
@@ -160,16 +160,16 @@ textarea {
 }
 
 /* ERROR STATE */
-.textarea__textarea.textarea__limit {
+.textarea--limit-exceed {
   box-shadow: none;
   border-color: red;
 }
 
-.textarea__textarea.textarea__error {
+.textarea--error {
   border-color: var(--color-error);
 }
 
-.textarea__textarea.textarea__error:focus {
+.textarea--error:focus {
   border-color: var(--color-error);
   box-shadow:
     0 0 0 1px var(--color-error),
@@ -185,16 +185,16 @@ textarea {
   justify-content: flex-end;
 }
 
-.textarea__messages__start {
+.textarea__messages--flex-start {
   display: flex;
   justify-content: flex-start;
 }
 
-.textarea__count__limit {
+.textarea__count--limit {
   color: var(--color-error);
 }
 
-.textarea__error--message {
+.textarea__error__message {
   font-family: 'Noto Sans';
   font-weight: 400;
   font-size: 14px;
