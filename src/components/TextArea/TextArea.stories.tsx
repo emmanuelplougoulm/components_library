@@ -14,7 +14,7 @@ const meta: Meta<typeof TextArea> = {
     initialValue: { control: 'text' },
     errorMessage: {
       control: 'text',
-      if: { arg: 'error' } // Ne montre que si error=true
+      if: { arg: 'error' }
     }
   },
   args: {
