@@ -1,7 +1,47 @@
+<template>
+  <span
+    role="status"
+    :aria-label="label"
+    :class="['badge', `badge--color-${color}`, `badge--size-${size}`]"
+  >
+    {{ label }}
+  </span>
+</template>
+
+<script lang="ts" setup>
+import { defineProps } from 'vue';
+
+defineProps({
+  color: {
+    type: String as () => 'neutral' | 'success' | 'error' | 'warning' | 'brand',
+    default: 'neutral'
+  },
+  label: {
+    type: String,
+    default: 'label'
+  },
+  size: {
+    type: String as () => 'sm' | 'md' | 'lg',
+    default: 'md'
+  }
+});
+</script>
+
+<style scoped>
 .badge {
   box-sizing: border-box;
-  font-family: 'Noto Sans', system-ui, -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+  font-family:
+    'Noto Sans',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
     sans-serif;
   display: inline-block;
   font-weight: 400;
@@ -11,6 +51,7 @@
   border-width: 1px;
   border-style: solid;
   width: fit-content;
+
   /* Cross platform rules */
   -webkit-border-radius: 624.9375rem;
   -moz-border-radius: 624.9375rem;
@@ -18,33 +59,33 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.badge_size_sm {
+.badge--size-sm {
   font-size: 0.75rem;
   padding: 0.125rem 0.375rem;
   line-height: 1rem;
 }
-.badge_size_md {
+.badge--size-md {
   font-size: 0.875rem;
   padding: 0.125rem 0.5rem;
   line-height: 1.25rem;
 }
-.badge_size_lg {
+.badge--size-lg {
   font-size: 1.25rem;
   padding: 0.25rem 0.625rem;
   line-height: 1.25rem;
 }
 
-.badge_color_neutral {
+.badge--color-neutral {
   background-color: #f9fafb;
   color: #525252;
   border-color: #e6e6e6;
 }
-.badge_color_error {
+.badge--color-error {
   background-color: #fef2f2;
   color: #dc2626;
   border-color: #fecaca;
 }
-.badge_color_warning {
+.badge--color-warning {
   background-color: #fffbeb;
   color: #b45309;
   border-color: #fde68a;
@@ -59,3 +100,4 @@
   color: #4338ca;
   border-color: #c7d2fe;
 }
+</style>
