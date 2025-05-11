@@ -10,6 +10,7 @@
 
 <script lang="ts" setup>
 import { defineProps } from 'vue';
+import '../../styles/variables.css';
 
 defineProps({
   color: {
@@ -30,19 +31,7 @@ defineProps({
 <style scoped>
 .badge {
   box-sizing: border-box;
-  font-family:
-    'Noto Sans',
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    'Open Sans',
-    'Helvetica Neue',
-    sans-serif;
+  font-family: var(--font-family);
   display: inline-block;
   font-weight: 400;
   text-align: center;
@@ -90,12 +79,12 @@ defineProps({
   color: #b45309;
   border-color: #fde68a;
 }
-.badge_color_success {
+.badge--color-success {
   background-color: #f0fdf4;
   color: #15803d;
   border-color: #bbf7d0;
 }
-.badge_color_brand {
+.badge--color-brand {
   background-color: #eef2ff;
   color: #4338ca;
   border-color: #c7d2fe;
