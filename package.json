@@ -51,6 +51,7 @@
     "@astrojs/vue": "^5.0.13",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.2",
+    "@vitejs/plugin-vue": "^5.2.4",
     "astro-icon": "^1.1.5",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
