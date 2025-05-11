@@ -2,20 +2,18 @@ import Badge from './Badge.vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 
 const meta: Meta<typeof Badge> = {
-  title: 'Components/Badge',
+  title: 'UI/Badge',
   component: Badge,
   tags: ['autodocs'],
   argTypes: {
-    label: { control: 'text', description: 'Le texte du badge' },
+    label: { control: 'text' },
     color: {
       control: { type: 'select' },
-      options: ['neutral', 'success', 'error', 'warning', 'brand'],
-      description: 'Couleur du badge'
+      options: ['neutral', 'success', 'error', 'warning', 'brand']
     },
     size: {
       control: { type: 'select' },
-      options: ['sm', 'md', 'lg'],
-      description: 'Taille du badge'
+      options: ['sm', 'md', 'lg']
     }
   },
   args: {
