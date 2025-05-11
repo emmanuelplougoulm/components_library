@@ -1,10 +1,8 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Déclenche le workflow à chaque push vers la branche `main`
   push:
     branches: [ main ]
-  # Permet d'exécuter le workflow manuellement depuis l'onglet Actions
   workflow_dispatch:
 
 permissions:
@@ -16,17 +14,31 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      # Étape 1 : Cloner le dépôt
-      - name: Checkout your repository using git
+      - name: Checkout
         uses: actions/checkout@v4
 
-      # Étape 2 : Installer les dépendances et construire le site Astro
-      - name: Install, build, and upload your site
-        uses: withastro/action@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          path: . # Racine du projet Astro (facultatif si vous êtes à la racine)
-          node-version: 20 # Version de Node.js (par défaut : 20)
-          package-manager: npm # Gestionnaire de paquets (npm par défaut)
+          node-version: 20
+
+      # Étape commune pour installer les dépendances
+      - name: Install dependencies
+        run: npm ci
+
+      # Build Astro (génère le site dans ./dist par défaut)
+      - name: Build Astro
+        run: npm run build
+
+      # Build Storybook (génère dans ./dist/storybook)
+      - name: Build Storybook
+        run: npm run build-storybook
+
+      # Utilisez l'action officielle pour préparer l'artefact
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist  # Dossier contenant Astro ET Storybook
 
   deploy:
     needs: build
@@ -35,7 +47,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      # Étape 3 : Déployer sur GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
