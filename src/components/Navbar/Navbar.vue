@@ -51,7 +51,7 @@ import { defineProps, ref } from 'vue';
 import Button from '@components/Button/Button.vue';
 import LogoIcon from '@icons/abstractly-logo.svg?url';
 import BurgerMenu from '@icons/burger-menu.svg?url';
-import { type TSize, type TVariant } from '@custom-types/types';
+import { type TSize, type TVariant } from 'src/custom-types/types';
 
 const isMenuOpen = ref<boolean>(false);
 

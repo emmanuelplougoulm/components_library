@@ -29,7 +29,7 @@
 
 <script lang="ts" setup>
 import { defineProps } from 'vue';
-import { type TSize, type TVariant } from '@custom-types/types';
+import { type TSize, type TVariant } from '../../custom-types/types';
 
 type TButtonProps = {
   label?: string;

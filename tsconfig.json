@@ -7,11 +7,11 @@
       "@assets/*": ["src/assets/*"],
       "@styles/*": ["src/styles/*"],
       "@icons/*": ["src/icons/*"],
-      "@custom-types/*": ["src/types/*"]
+      "@custom-types/*": ["src/custom-types/*"]
     },
     "jsx": "preserve",
     "jsxImportSource": "react",
     "types": ["vite-plugin-svgr/client", "vite/client"]
   },
-  "include": ["src/**/*", "src/types/svg.d.ts"]
+  "include": ["src/**/*", "src/custom-types/svg.d.ts"]
 }
