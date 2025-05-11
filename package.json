@@ -8,7 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build -o ./dist/storybook"
   },
   "repository": {
     "type": "git",
