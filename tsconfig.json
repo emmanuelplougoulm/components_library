@@ -11,7 +11,7 @@
     },
     "jsx": "preserve",
     "jsxImportSource": "react",
-    "types": ["vite-plugin-svgr/client"]
+    "types": ["vite-plugin-svgr/client", "vite/client"]
   },
   "include": ["src/**/*", "src/types/svg.d.ts"]
 }

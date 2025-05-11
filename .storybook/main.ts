@@ -1,4 +1,5 @@
 import type { StorybookConfig } from '@storybook/vue3-vite';
+import svgLoader from 'vite-svg-loader';
 
 const config: StorybookConfig = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
@@ -13,6 +14,12 @@ const config: StorybookConfig = {
     options: {}
   },
   async viteFinal(config) {
+    config.plugins?.push(
+      svgLoader({
+        defaultImport: 'component'
+      })
+    );
+
     return {
       ...config,
       optimizeDeps: {
