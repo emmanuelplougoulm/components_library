@@ -1,19 +1,24 @@
 import BaseIcon from './BaseIcon.vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 
+const iconModules = import.meta.glob('../../icons/*.svg');
+
+const iconNames = Object.keys(iconModules)
+  .map((path) => path.match(/\/([^/]+)\.svg$/)?.[1] ?? '')
+  .filter(Boolean);
+
 const meta: Meta<typeof BaseIcon> = {
-  title: 'Components/Icon',
+  title: 'UI/BaseIcon',
   component: BaseIcon,
   tags: ['autodocs'],
   argTypes: {
     iconName: {
       control: { type: 'select' },
-      options: ['home', 'search', 'user', 'settings', 'alert'],
-      description: 'Nom de l’icône à afficher'
+      options: iconNames
     }
   },
   args: {
-    iconName: 'home'
+    iconName: iconNames[1] || ''
   }
 };
 
@@ -29,14 +34,13 @@ export const AllIcons: Story = {
   render: (args) => ({
     components: { BaseIcon },
     setup() {
-      const icons = ['home', 'search', 'user', 'settings', 'alert'];
-      return { args, icons };
+      return { args, iconNames };
     },
     template: `
-      <div style="display: flex; gap: 1.5rem; align-items: center;">
-        <div v-for="icon in icons" :key="icon" style="display: flex; flex-direction: column; align-items: center;">
-          <Icon :iconName="icon" class="icon-demo" />
-          <span style="font-size: 0.8rem; margin-top: 0.25rem;">{{ icon }}</span>
+      <div style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap;">
+        <div v-for="icon in iconNames" :key="icon" style="text-align: center;">
+          <BaseIcon :iconName="icon" />
+          <div style="font-size: 0.8rem; margin-top: 0.25rem;">{{ icon }}</div>
         </div>
       </div>
     `
