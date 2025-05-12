@@ -27,6 +27,8 @@
 </template>
 
 <script lang="ts" setup>
+import '../../styles/variables.css';
+
 import { defineProps } from 'vue';
 import Button from '@components/Button/Button.vue';
 import { icons } from './config';
@@ -59,7 +61,7 @@ h2 {
 }
 
 .profile_card {
-  font-family: 'Noto Sans';
+  font-family: var(--font-family);
   width: 340px;
   display: flex;
   flex-direction: column;

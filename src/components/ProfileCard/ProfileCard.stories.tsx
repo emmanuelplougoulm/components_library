@@ -1,21 +1,25 @@
 import ProfileCard from './ProfileCard.vue';
-import Button from '../Button/Button.vue';
-import BaseIcon from '../BaseIcon/BaseIcon.vue';
+// import Button from '../Button/Button.vue';
+// import BaseIcon from '../BaseIcon/BaseIcon.vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
+
+/*TODO
+l'image ne devrait pas être carrée
+les icones socials ne sont pas affichées*/
 
 // Exemples d'icônes pour les réseaux sociaux
 const icons = [{ iconName: 'linkedin' }, { iconName: 'github' }, { iconName: 'twitter' }];
 
 const meta: Meta<typeof ProfileCard> = {
-  title: 'Components/ProfileCard',
+  title: 'Marketing/ProfileCard',
   component: ProfileCard,
   tags: ['autodocs'],
   argTypes: {
-    thumbnail: { control: 'text', description: 'URL de la photo de profil' },
-    name: { control: 'text', description: 'Nom de la personne' },
-    position: { control: 'text', description: 'Poste ou fonction' },
-    description: { control: 'text', description: 'Description courte' },
-    buttonLabel: { control: 'text', description: 'Texte du bouton' }
+    thumbnail: { control: 'text' },
+    name: { control: 'text' },
+    position: { control: 'text' },
+    description: { control: 'text' },
+    buttonLabel: { control: 'text' }
     // icons ne passe pas en argType ici car il est importé dans le composant
   },
   args: {
