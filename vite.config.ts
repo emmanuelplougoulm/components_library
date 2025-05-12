@@ -12,7 +12,11 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@custom-types': path.resolve(__dirname, 'src/custom-types')
+      '@custom-types': path.resolve(__dirname, 'src/custom-types'),
+      '@components': path.resolve(__dirname, 'src/components'),
+      '@assets': path.resolve(__dirname, 'src/assets'),
+      '@styles': path.resolve(__dirname, 'src/styles'),
+      '@icons': path.resolve(__dirname, 'src/icons')
     }
   }
 });
