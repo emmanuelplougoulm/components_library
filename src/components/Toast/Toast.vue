@@ -8,6 +8,8 @@
 </template>
 
 <script lang="ts" setup>
+import '../../styles/variables.css';
+
 type TToastProps = {
   status: string;
   label: string;
@@ -17,18 +19,13 @@ const { status, label } = defineProps<TToastProps>();
 </script>
 
 <style>
-/* VARIABLES */
-:root {
-}
-
-/* BASE STYLES */
-
 * {
   box-sizing: border-box;
   margin: 0;
 }
 
 .toast__content {
+  font-family: var(--font-family);
   width: fit-content;
   display: flex;
   align-items: center;
