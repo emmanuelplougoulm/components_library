@@ -46,6 +46,7 @@ type TTextAreaProps = {
 };
 
 import { ref, watch } from 'vue';
+import '../../styles/variables.css';
 const uniqueId = `textarea-${Math.random().toString(36)}`;
 
 const {
@@ -98,7 +99,7 @@ textarea {
 }
 
 .textarea {
-  font-family: 'Noto Sans';
+  font-family: var(--font-family);
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -151,7 +152,7 @@ textarea {
 }
 
 .textarea__count {
-  font-family: 'Noto Sans';
+  font-family: var(--font-family);
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
@@ -195,7 +196,7 @@ textarea {
 }
 
 .textarea__error__message {
-  font-family: 'Noto Sans';
+  font-family: var(--font-family);
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
