@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { defineProps, type PropType } from 'vue';
 import Badge from '@components/Badge/Badge.vue';
-// import ArrowRight from '@icons/arrow-right.svg?component';
+import BaseIcon from '@components/BaseIcon/BaseIcon.vue';
 
 type BadgeStatus = 'neutral' | 'success' | 'error' | 'warning' | 'brand';
 
@@ -65,7 +65,7 @@ defineOptions({
           @click="props.btnFn?.()"
         >
           {{ btnLabel }}
-          <!-- <ArrowRight class="blog_card_icon" /> -->
+          <BaseIcon iconName="arrow-right" />
         </button>
       </div>
     </div>
