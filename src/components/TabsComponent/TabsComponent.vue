@@ -29,6 +29,7 @@
 </template>
 
 <script lang="ts" setup>
+import '../../styles/variables.css';
 import { defineProps, ref } from 'vue';
 
 const activeIndex = ref(0);
@@ -58,6 +59,7 @@ defineProps<TTabsProps>();
 
 * {
   box-sizing: border-box;
+  font-family: var(--font-family);
 }
 
 button {
