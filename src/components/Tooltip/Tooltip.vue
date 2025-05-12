@@ -7,6 +7,7 @@
 </template>
 
 <script lang="ts" setup>
+import '../../styles/variables.css';
 type TTooltipProps = {
   visible: boolean;
   text: string;
@@ -51,7 +52,7 @@ const { text, position, visible } = defineProps<TTooltipProps>();
   background-color: var(--color-background);
   padding: 8px 12px;
   border-radius: 8px;
-  font-family: 'Noto Sans';
+  font-family: var(--font-family);
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
