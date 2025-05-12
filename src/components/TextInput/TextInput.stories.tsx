@@ -1,21 +1,21 @@
-import Input from './TextInput.vue';
+import TextInput from './TextInput.vue';
 import BaseIcon from '../BaseIcon/BaseIcon.vue';
 import { ref } from 'vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 
-const meta: Meta<typeof Input> = {
+const meta: Meta<typeof TextInput> = {
   title: 'UI/TextInput',
-  component: Input,
+  component: TextInput,
   tags: ['autodocs'],
   argTypes: {
-    label: { control: 'text', description: 'Label du champ' },
-    hint: { control: 'text', description: 'Texte d’aide ou d’erreur' },
-    disabled: { control: 'boolean', description: 'Champ désactivé' },
-    error: { control: 'boolean', description: 'Champ en erreur' },
-    text: { control: 'text', description: 'Valeur du champ (v-model)' }
+    label: { control: 'text' },
+    hint: { control: 'text' },
+    disabled: { control: 'boolean' },
+    error: { control: 'boolean' },
+    text: { control: 'text' }
   },
   args: {
-    label: 'Adresse email',
+    label: 'Email address',
     hint: '',
     disabled: false,
     error: false,
@@ -25,54 +25,51 @@ const meta: Meta<typeof Input> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Input>;
+type Story = StoryObj<typeof TextInput>;
 
 export const Default: Story = {
   render: (args) => ({
-    components: { Input },
+    components: { TextInput },
     setup() {
       const text = ref(args.text);
       return { args, text };
     },
     template: `
-      <Input v-bind="args" v-model:text="text" />
-      <div style="margin-top: 1rem; font-size: 0.9rem;">
-        Valeur : <b>{{ text }}</b>
-      </div>
+      <TextInput v-bind="args" v-model:text="text" />
     `
   })
 };
 
 export const WithLeftIcon: Story = {
   render: (args) => ({
-    components: { Input, BaseIcon },
+    components: { TextInput, BaseIcon },
     setup() {
       const text = ref(args.text);
       return { args, text };
     },
     template: `
-      <Input v-bind="args" v-model:text="text">
+      <TextInput v-bind="args" v-model:text="text">
         <template #iconLeft>
           <BaseIcon iconName="user" />
         </template>
-      </Input>
+      </TextInput>
     `
   })
 };
 
 export const WithRightIcon: Story = {
   render: (args) => ({
-    components: { Input, BaseIcon },
+    components: { TextInput, BaseIcon },
     setup() {
       const text = ref(args.text);
       return { args, text };
     },
     template: `
-      <Input v-bind="args" v-model:text="text">
+      <TextInput v-bind="args" v-model:text="text">
         <template #iconRight>
           <BaseIcon iconName="mail" />
         </template>
-      </Input>
+      </TextInput>
     `
   })
 };
@@ -80,13 +77,13 @@ export const WithRightIcon: Story = {
 export const ErrorState: Story = {
   args: {
     error: true,
-    hint: 'Adresse email invalide'
+    hint: 'Invalid email'
   }
 };
 
 export const Disabled: Story = {
   args: {
     disabled: true,
-    hint: 'Ce champ est désactivé'
+    hint: 'Deactivated field'
   }
 };

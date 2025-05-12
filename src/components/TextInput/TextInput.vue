@@ -39,6 +39,8 @@
 </template>
 
 <script lang="ts" setup>
+import '../../styles/variables.css';
+
 const inputId = `input-${Math.random().toString(36).substr(2, 9)}`;
 
 type TTextInputProps = {
@@ -78,7 +80,7 @@ const { label } = defineProps<TTextInputProps>();
 }
 
 .input {
-  font-family: 'Noto Sans';
+  font-family: var(--font-family);
   display: flex;
   flex-direction: column;
   gap: 6px;
