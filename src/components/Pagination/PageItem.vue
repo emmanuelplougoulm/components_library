@@ -14,6 +14,8 @@
 </template>
 
 <script lang="ts" setup>
+import '../../styles/variables.css';
+
 type TPaginationProps = {
   text: string | number;
   disabled?: boolean;
@@ -44,7 +46,7 @@ defineProps<TPaginationProps>();
 }
 
 .pagination__text {
-  font-family: 'Noto Sans';
+  font-family: var(--font-family);
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;
