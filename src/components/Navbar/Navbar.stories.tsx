@@ -1,26 +1,25 @@
 import Navbar from './Navbar.vue';
-import Button from '../Button/Button.vue';
-// Les imports SVG sont gérés dans le composant, inutile de les importer ici
 import type { Meta, StoryObj } from '@storybook/vue3';
+import { type TLink, type TCtaButton } from '../../custom-types/types';
 
-const links = [
+const links: TLink[] = [
   { label: 'Features', path: '/features', size: 'md', variant: 'link-gray' },
   { label: 'Pricing', path: '/pricing', size: 'md', variant: 'link-gray' },
   { label: 'Docs', path: '/docs', size: 'md', variant: 'link-gray' }
 ];
 
-const ctaButtons = [
+const ctaButtons: TCtaButton[] = [
   { label: 'Sign Up', path: '/signup', size: 'md', variant: 'primary' },
   { label: 'Sign In', path: '/signin', size: 'md', variant: 'secondary' }
 ];
 
 const meta: Meta<typeof Navbar> = {
-  title: 'Components/Navbar',
+  title: 'UI/Navbar',
   component: Navbar,
   tags: ['autodocs'],
   argTypes: {
-    links: { control: 'object', description: 'Liens de navigation' },
-    ctaButtons: { control: 'object', description: 'Boutons call-to-action' }
+    links: { control: 'object' },
+    ctaButtons: { control: 'object' }
   },
   args: {
     links,
