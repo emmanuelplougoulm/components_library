@@ -12,6 +12,7 @@
 </template>
 
 <script lang="ts" setup>
+import '../../styles/variables.css';
 import BaseIcon from '@components/BaseIcon/BaseIcon.vue';
 import { ref } from 'vue';
 
@@ -52,6 +53,7 @@ input[type='checkbox'] {
 }
 
 .checkbox {
+  font-family: var(--font-family);
   display: flex;
   align-items: center;
   gap: 12px;
