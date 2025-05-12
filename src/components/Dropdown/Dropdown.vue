@@ -27,6 +27,7 @@
 </template>
 
 <script setup lang="ts">
+import '../../styles/variables.css';
 import { ref, defineProps, watch } from 'vue';
 import BaseIcon from '@components/BaseIcon/BaseIcon.vue';
 
@@ -80,7 +81,7 @@ const selectOption = (option) => {
   cursor: pointer;
   text-transform: capitalize;
 
-  font-family: 'Noto Sans';
+  font-family: var(--font-family);
 }
 .dropdown__input--selected {
   display: flex;
