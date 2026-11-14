@@ -1,5 +1,5 @@
 import BaseIcon from './BaseIcon.vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
 
 const iconModules = import.meta.glob('../../icons/*.svg');
 

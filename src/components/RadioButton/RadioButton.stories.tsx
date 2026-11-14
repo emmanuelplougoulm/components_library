@@ -1,7 +1,7 @@
 // Radio.stories.ts
 import RadioButton from './RadioButton.vue';
 import { ref } from 'vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
 
 // Exemple d’icône SVG inline pour les slots
 const DemoIcon = {

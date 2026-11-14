@@ -1,5 +1,5 @@
 import Navbar from './Navbar.vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
 import { type TLink, type TCtaButton } from '../../custom-types/types';
 
 const links: TLink[] = [

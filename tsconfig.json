@@ -9,9 +9,7 @@
       "@icons/*": ["src/icons/*"],
       "@custom-types/*": ["src/custom-types/*"]
     },
-    "jsx": "preserve",
-    "jsxImportSource": "react",
-    "types": ["vite-plugin-svgr/client", "vite/client"]
+    "types": ["vite/client"]
   },
   "include": ["src/**/*", "src/custom-types/svg.d.ts"]
 }

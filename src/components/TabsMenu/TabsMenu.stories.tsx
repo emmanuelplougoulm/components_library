@@ -1,5 +1,5 @@
 import TabsMenu from './TabsMenu.vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
 
 const defaultTabs = [
   { title: 'Landing', content: 'Landing page' },

@@ -1,6 +1,6 @@
 import Toggle from './Toggle.vue';
 import { ref, watch } from 'vue';
-import type { Meta } from '@storybook/vue3';
+import type { Meta } from '@storybook/vue3-vite';
 
 const meta: Meta<typeof Toggle> = {
   title: 'UI/Toggle',

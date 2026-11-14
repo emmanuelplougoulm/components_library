@@ -1,7 +1,7 @@
 import Dropdown from './Dropdown.vue';
 import BaseIcon from '../BaseIcon/BaseIcon.vue';
 import { ref } from 'vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
 
 const optionsWithIcons = [
   { name: 'Private', icon: 'lock' },

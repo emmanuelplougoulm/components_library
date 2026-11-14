@@ -4,10 +4,10 @@ import svgLoader from 'vite-svg-loader';
 const config: StorybookConfig = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   addons: [
-    '@storybook/addon-essentials',
     '@storybook/addon-onboarding',
     '@chromatic-com/storybook',
-    '@storybook/experimental-addon-test'
+    '@storybook/addon-vitest',
+    '@storybook/addon-docs'
   ],
   framework: {
     name: '@storybook/vue3-vite',
@@ -23,7 +23,7 @@ const config: StorybookConfig = {
     return {
       ...config,
       optimizeDeps: {
-        include: [...(config.optimizeDeps?.include || []), 'vue', '@storybook/vue3'],
+        include: [...(config.optimizeDeps?.include || []), 'vue', '@storybook/vue3-vite'],
         exclude: [...(config.optimizeDeps?.exclude || []), 'vue-demi']
       }
     };

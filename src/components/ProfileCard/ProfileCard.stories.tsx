@@ -1,7 +1,7 @@
 import ProfileCard from './ProfileCard.vue';
 // import Button from '../Button/Button.vue';
 // import BaseIcon from '../BaseIcon/BaseIcon.vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
 
 /*TODO
 l'image ne devrait pas être carrée

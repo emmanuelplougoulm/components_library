@@ -1,5 +1,5 @@
 import TabsComponent from './TabsComponent.vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
+import type { Meta, StoryObj } from '@storybook/vue3-vite';
 
 const defaultTabs = [
   { title: 'Landing', content: 'Welcome to the landing page' },
